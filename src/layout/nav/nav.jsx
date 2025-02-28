@@ -13,7 +13,7 @@ export default function Nav() {
   };
 
   return (
-    <div className="flex flex-row justify-between items-center px-8 bg-[#FFFFFF] h-[100px] w-[100%] overflow-hidden fixed z-10">
+    <div className="flex flex-row justify-between items-center px-8 bg-[#FFFFFF] h-[100px] w-[100%] overflow-hidden fixed z-10 shadow-2xl">
       <img src={Logo} alt="logo" className="w-[90px] h-[90px]" />
 
      
