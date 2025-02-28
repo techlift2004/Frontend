@@ -52,10 +52,10 @@ const Upcoming = () => {
       <div className="relative max-w-5xl mx-auto  ">
        
         <button className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 z-10 bg-transparent border-none cursor-pointer">
-          <ChevronLeft size={30} className="text-purple-800" />
+          <ChevronLeft size={30} className="text-purple-800 hidden xl:block" />
         </button>
         <button className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 z-10 bg-transparent border-none cursor-pointer">
-          <ChevronRight size={30} className="text-purple-800" />
+          <ChevronRight size={30} className="text-purple-800 hidden xl:block" />
         </button>
 
         <Swiper
