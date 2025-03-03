@@ -47,15 +47,15 @@ const events = [
 
 const Upcoming = () => {
   return (
-    <div className="py-10 px-5 bg-[#FFFFFF] h-[500px] items-center place-content-center w-[100%] xl:mt-[-370px] ">
+    <div className="py-10 px-5 bg-[#FFFFFF] h-[500px] items-center place-content-center w-[100%] ">
       <h2 className="text-center text-2xl font-bold mb-6 ">Upcoming Events</h2>
       <div className="relative max-w-5xl mx-auto  ">
        
-        <button className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 z-10 bg-transparent border-none cursor-pointer">
-          <ChevronLeft size={30} className="text-purple-800 hidden xl:block" />
+        <button className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 z-10 bg-transparent border-none cursor-pointer swiper-button-prev text-purple-800 hidden xl:block ">
+          {/* <ChevronLeft size={30} className="text-purple-800 hidden xl:block swiper-button-prev"  /> */}
         </button>
-        <button className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 z-10 bg-transparent border-none cursor-pointer">
-          <ChevronRight size={30} className="text-purple-800 hidden xl:block" />
+        <button className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 z-10 bg-transparent border-none cursor-pointer swiper-button-next hidden xl:block">
+          {/* <ChevronRight size={30} className="text-purple-800 hidden xl:block" />  */}
         </button>
 
         <Swiper
@@ -78,7 +78,7 @@ const Upcoming = () => {
              <div className=" flex flex-col items-center text-center">
                 <h3 className="text-xl font-bold mb-3">{event.title}</h3>
                 <p className="text-gray-700 text-sm mb-4">{event.description}</p>
-                <button className="border border-purple-800 text-purple-800 px-4 py-2 rounded-lg">
+                <button className="border border-purple-800 text-purple-800 px-4 cursor-pointer py-2 rounded-lg">
                   {event.buttonText}
                 </button>
               </div>

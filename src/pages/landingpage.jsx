@@ -4,7 +4,10 @@ import Hero from '../components/LandingPage/hero'
 import Feature from '../components/LandingPage/feature'
 import About from '../components/LandingPage/about'
 import Upcoming from '../components/LandingPage/upcoming'
-// import Footer from '../layout/footer/footer'
+import Memberscomment from '../components/LandingPage/memberscomment'
+import Blog from '../components/LandingPage/blog'
+import Faq from '../components/LandingPage/faq'
+import Footer from '../layout/footer/footer'
 
 export default function langing() {
   return (
@@ -14,9 +17,10 @@ export default function langing() {
       <Feature />
       <About />
       <Upcoming />
-      
-      
-
+      <Memberscomment />
+      <Blog />
+      <Faq />
+      <Footer />
     </div>
   )
 }
