@@ -13,7 +13,7 @@ export default function Nav() {
   };
 
   return (
-    <div className="flex flex-row justify-between items-center px-8 bg-[#FFFFFF] h-[100px] w-[100%] overflow-hidden fixed z-10 shadow-2xl ">
+    <div className="flex flex-row justify-between items-center px-8 bg-[#FFFFFF] h-[64px] w-[100%] overflow-hidden fixed z-1000 shadow ">
     
       <img src={Logo} alt="logo" className="w-[90px] h-[90px]" />
 
@@ -60,7 +60,7 @@ export default function Nav() {
         </ul>
       </div>
 
-      <button className="bg-[#4B0082] h-[54px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer hidden md:block">
+      <button className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer hidden md:block">
         Sponsor Us
       </button>
     </div>
