@@ -5,7 +5,7 @@ import heroimg from "../../assets/Group 49.svg";
 export default function Hero() {
   return (
     <div className="flex flex-col xl:flex-row justify-center gap-10 md:gap-0 items-center px-5 md:px-20 xl:pt-20 pt-36">
-      {/* Text Section */}
+      
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -23,7 +23,7 @@ export default function Hero() {
         </button>
       </motion.div>
 
-      {/* Image Section */}
+      
       <motion.div
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
