@@ -1,8 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import heroimg from "../../assets/Group 49.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/join"); // Replace with your target route
+  };
+
   return (
     <div className="flex flex-col xl:flex-row justify-center gap-10 md:gap-0 items-center px-5 md:px-20 xl:pt-20 pt-36">
       
@@ -18,7 +25,7 @@ export default function Hero() {
         <p className="md:text-[26px] text-[20px] text-[#000000] font-normal md:w-[422px] text-center xl:text-start">
           From Passion to Progress: Uplifting Talent Through Tech, Nurturing Innovation, and Creating Limitless Opportunities for a Brighter Future
         </p>
-        <button className="bg-[#4B0082] text-[#FFFFFF] w-[201px] h-[64px] rounded-[8px]">
+        <button onClick={handleClick} className="bg-[#4B0082] text-[#FFFFFF] w-[201px] h-[64px] rounded-[8px]">
           Join our community
         </button>
       </motion.div>
