@@ -2,6 +2,8 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from './pages/landingpage';
+import Contact from './pages/contact';
+import Join from './pages/joinus';
 
 function App() {
  
@@ -12,7 +14,8 @@ function App() {
     <BrowserRouter>
     <Routes>
               <Route path="/" element={<LandingPage />} />
-              {/* <Route path="/contact" element={<Contact />} /> */}
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/join" element={<Join />} />
        </Routes>
     </BrowserRouter>
   
