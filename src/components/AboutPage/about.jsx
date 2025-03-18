@@ -9,11 +9,11 @@ export default function About() {
     return (
         <>
             <div className="bg-[#F5F5DC] pt-36">
-                <h1>About Us</h1>
-                <p>
+                <h1 className="text-center font-semibold text-4xl" style={{fontWeight: "800", fontSize: "2.5rem"}}>About Us</h1>
+                <p className="text-center text-[1.3rem] px-4" style={{fontSize: "1.3rem", padding: "0 1rem"}}>
                     We are a team of techies ensuring that the next generation of techies have access to the right resources and community.  we share knowledge, and empower growth through discussions resources and networking
                 </p>
-                <div className="flex justify-center gap-10 items-center p-5 relative top-28 mt-[-52rem]" style={{ position: "relative", top: "6rem" }}>
+                <div className="flex justify-center gap-10 items-center p-5 relative top-28 mt-[-4rem]" style={{ position: "relative", top: "6rem", marginTop: "-4rem"}}>
                     <img src={aboutimg1} alt="About Us" className="w-md"/>
                     <img src={aboutimg1} alt="About Us" className="w-md h-40"/>
                     <img src={aboutimg1} alt="About Us" className="w-md"/>
