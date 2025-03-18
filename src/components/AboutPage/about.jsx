@@ -1,23 +1,23 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import aboutimg1 from "../../assets/Rectangle 60.svg";
 import aboutimg from "../../assets/about.svg";
 
 export default function About() {
     const ref = useRef(null);
     const isInView = useInView(ref, { triggerOnce: true, threshold: 0.2 });
-
     return (
         <>
-            <div className="bg-[#F5F5DC] pt-10">
+            <div className="bg-[#F5F5DC] pt-36">
                 <h1>About Us</h1>
                 <p>
                     We are a team of techies ensuring that the next generation of techies have access to the right resources and community.  we share knowledge, and empower growth through discussions resources and networking
                 </p>
-                <div className="flex justify-aroud items-center p-5">
-                    <img src={aboutimg} alt="About Us" />
-                    <img src={aboutimg} alt="About Us" />
-                    <img src={aboutimg} alt="About Us" />
-                    <img src={aboutimg} alt="About Us" />
+                <div className="flex justify-center gap-10 items-center p-5 relative top-28 mt-[-52rem]" style={{ position: "relative", top: "6rem" }}>
+                    <img src={aboutimg1} alt="About Us" className="w-md"/>
+                    <img src={aboutimg1} alt="About Us" className="w-md h-40"/>
+                    <img src={aboutimg1} alt="About Us" className="w-md"/>
+                    <img src={aboutimg1} alt="About Us" className="w-md h-40"/>
                 </div>
             </div>
             <motion.div
@@ -25,7 +25,7 @@ export default function About() {
                 initial={{ y: 60, opacity: 0 }}
                 animate={isInView ? { y: 0, opacity: 1 } : {}}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="flex flex-col justify-center items-center py-10 gap-5 px-8 md:px-20"
+                className="flex flex-col justify-center items-center py-10 pt-36 gap-5 px-8 md:px-20"
             >
                 <p className="text-center md:w-[765px] font-bold">
                     We ensure that as someone starting out in tech, you have  access to the right resources, seminars, work shops and tech events where you can network with professionals in tech and gain exposure that will help you grow
