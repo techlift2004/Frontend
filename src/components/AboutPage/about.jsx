@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import aboutimg1 from "../../assets/Rectangle 60.svg";
 import aboutimg from "../../assets/about.svg";
+import ThoughtProcess from "./ThoughtProcess";
 
 export default function About() {
     const ref = useRef(null);
@@ -9,15 +10,15 @@ export default function About() {
     return (
         <>
             <div className="bg-[#F5F5DC] pt-36">
-                <h1 className="text-center font-semibold text-4xl" style={{fontWeight: "800", fontSize: "2.5rem"}}>About Us</h1>
-                <p className="text-center text-[1.3rem] px-4" style={{fontSize: "1.3rem", padding: "0 1rem"}}>
+                <h1 className="text-center font-extrabold text-5xl">About Us</h1>
+                <p className="text-center text-[1.3rem] px-4 mt-4">
                     We are a team of techies ensuring that the next generation of techies have access to the right resources and community.  we share knowledge, and empower growth through discussions resources and networking
                 </p>
-                <div className="flex justify-center gap-10 items-center p-5 relative top-28 mt-[-4rem]" style={{ position: "relative", top: "6rem", marginTop: "-4rem"}}>
-                    <img src={aboutimg1} alt="About Us" className="w-md"/>
-                    <img src={aboutimg1} alt="About Us" className="w-md h-40"/>
-                    <img src={aboutimg1} alt="About Us" className="w-md"/>
-                    <img src={aboutimg1} alt="About Us" className="w-md h-40"/>
+                <div className="flex justify-around items-center p-5 relative top-28 mt-[-4rem]">
+                    <img src={aboutimg1} alt="About Us" className="w-sm"/>
+                    <img src={aboutimg1} alt="About Us" className="w-sm h-40"/>
+                    <img src={aboutimg1} alt="About Us" className="w-sm"/>
+                    <img src={aboutimg1} alt="About Us" className="w-sm h-40"/>
                 </div>
             </div>
             <motion.div
@@ -49,8 +50,8 @@ export default function About() {
                         >
                             <h1 className="font-bold text-[24px] text-center md:text-start">Our Vision</h1>
                             <p className="font-normal text-center xl:w-[465px] md:text-start">
-                            To be a leading community that bridges the gap for upcoming techies, inspiring a new generation of skilled and confident 
-                            technology professionals equipped to transform the future.
+                                To be a leading community that bridges the gap for upcoming techies, inspiring a new generation of skilled and confident 
+                                technology professionals equipped to transform the future.
                             </p>
                         </motion.div>
 
@@ -61,11 +62,15 @@ export default function About() {
                         >
                             <h1 className="font-bold text-[24px] text-center md:text-start">Our Mission</h1>
                             <p className="font-normal text-center xl:w-[465px] md:text-start">
-                            To empower aspiring tech enthusiasts by providing access to comprehensive resources, courses, workshops, and soft skills training. 
-                            Fostering growth, collaboration, and innovation in technology.
+                                To empower aspiring tech enthusiasts by providing access to comprehensive resources, courses, workshops, and soft skills training. 
+                                Fostering growth, collaboration, and innovation in technology.
                             </p>
                         </motion.div>
                     </div>
+                    
+                </div>
+                <div>
+                    <ThoughtProcess />
                 </div>
             </motion.div>
         </>
