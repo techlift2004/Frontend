@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import aboutimg1 from "../../assets/Rectangle 60.svg";
 import aboutimg from "../../assets/about.svg";
 import ThoughtProcess from "./ThoughtProcess";
+import Team from "./Team";
 
 export default function About() {
     const ref = useRef(null);
@@ -11,14 +12,14 @@ export default function About() {
         <>
             <div className="bg-[#F5F5DC] pt-36">
                 <h1 className="text-center font-extrabold text-5xl">About Us</h1>
-                <p className="text-center text-[1.3rem] px-4 mt-4">
+                <p className="text-center text-[1.3rem] px-20 mt-8">
                     We are a team of techies ensuring that the next generation of techies have access to the right resources and community.  we share knowledge, and empower growth through discussions resources and networking
                 </p>
-                <div className="flex justify-around items-center p-5 relative top-28 mt-[-4rem]">
-                    <img src={aboutimg1} alt="About Us" className="w-sm"/>
-                    <img src={aboutimg1} alt="About Us" className="w-sm h-40"/>
-                    <img src={aboutimg1} alt="About Us" className="w-sm"/>
-                    <img src={aboutimg1} alt="About Us" className="w-sm h-40"/>
+                <div className="flex justify-center items-center p-5 relative top-28 m-auto max-w-[70rem] mt-[-3rem]">
+                    <img src={aboutimg1} alt="About Us" className="w-lg h-60"/>
+                    <img src={aboutimg1} alt="About Us" className="w-lg h-40"/>
+                    <img src={aboutimg1} alt="About Us" className="w-lg h-60"/>
+                    <img src={aboutimg1} alt="About Us" className="w-lg h-40"/>
                 </div>
             </div>
             <motion.div
@@ -67,10 +68,12 @@ export default function About() {
                             </p>
                         </motion.div>
                     </div>
-                    
                 </div>
                 <div>
                     <ThoughtProcess />
+                </div>
+                <div>
+                    <Team />
                 </div>
             </motion.div>
         </>
