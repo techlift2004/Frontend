@@ -44,21 +44,21 @@ const Team = () => {
     return (
         <div>
             <h1 className="text-center font-extrabold text-4xl my-10 mb-28">Meet The Team</h1>
-            <div>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-start justify-between mb-[7rem] p-10'>
                 {
                     teamData.map((item, index)=>{
                         return(
                             <div key={index}>
-                                <div className='bg-[#4B0082]'></div>
-                                <div>
-                                    <div>
+                                <div className=' border-2 border-[#ff0000]'>
+                                    <div className='bg-[#4B0082] w-full h-8'></div>
+                                    <div className='p-10'>
+                                        <img src={item.teamImg} alt="techlift-agent"/>
                                         <h1 className='mb-10 font-bold text-[24px]'>{item.teamTitle}</h1>
                                         <h2 className='mb-10 font-bold text-[24px]'>{item.teamRole}</h2>
                                         <p className='max-w-[40rem]'>
                                             {item.teamBio}
                                         </p>
                                     </div>
-                                    <img src={item.teamImg} alt="techlift-agent"  className='transform rotate-345'/>
                                 </div>
                             </div>
                         )
