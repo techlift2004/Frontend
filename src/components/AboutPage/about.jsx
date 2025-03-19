@@ -4,6 +4,7 @@ import aboutimg1 from "../../assets/Rectangle 60.svg";
 import aboutimg from "../../assets/about.svg";
 import ThoughtProcess from "./ThoughtProcess";
 import Team from "./Team";
+import Footer from "../../layout/footer/footer";
 
 export default function About() {
     const ref = useRef(null);
@@ -76,6 +77,7 @@ export default function About() {
                     <Team />
                 </div>
             </motion.div>
+            <Footer />
         </>
     );
 }

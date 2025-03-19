@@ -11,10 +11,10 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/join" element={<Join />} />
-              <Route path="/about" element={<AboutPage />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/join" element={<Join />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </BrowserRouter>
     </>
