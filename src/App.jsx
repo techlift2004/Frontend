@@ -5,6 +5,7 @@ import LandingPage from './pages/landingpage';
 import Contact from './pages/contact';
 import Join from './pages/joinus';
 import AboutPage from './pages/AboutPage';
+import Events from './pages/Events';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/join" element={<Join />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path='/events' element={<Events />} />
+          {/* <Route path="*" element={<h1>404 Not Found</h1>} /> */}
         </Routes>
       </BrowserRouter>
     </>
