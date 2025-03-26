@@ -60,13 +60,11 @@ const AllEvents = () => {
                 {
                     eventData.map((item, index) => {
                         return (
-                            <div>
-                                <div key={index} className={`text-center bg-[#F5F5DCD4] rounded`}>
-                                    <img src={item.eventImg} alt="event" className='w-full' />
-                                    <h1 className='my-5 font-extrabold text-2xl'>{item.eventTitle}</h1>
-                                    <p className='text-xl'>{item.eventBio}</p>
-                                    <button className='text-xl my-5 border-2 rounded p-2 px-5 border-[#4B0082] hover:bg-[#4B0082] hover:text-white' onClick={()=>setModall(true)}>Register</button>
-                                </div>
+                            <div key={index} className={`text-center bg-[#F5F5DCD4] rounded`}>
+                                <img src={item.eventImg} alt="event" className='w-full' />
+                                <h1 className='my-5 font-extrabold text-2xl'>{item.eventTitle}</h1>
+                                <p className='text-xl'>{item.eventBio}</p>
+                                <button className='text-xl my-5 border-2 rounded p-2 px-5 border-[#4B0082] hover:bg-[#4B0082] hover:text-white' onClick={()=>setModall(true)}>Register</button>
                             </div>
                         )
                     })

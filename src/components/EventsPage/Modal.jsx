@@ -32,7 +32,7 @@ const Modal = ({ modall, setModall }) => {
       <ToastContainer position="top-center" autoClose={3000} />
       {modall && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center top-[4rem]">
-          <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full relative">
+          <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full relative my-0 mx-4">
             <button
               onClick={() => setModall(false)}
               aria-label="Close modal"
