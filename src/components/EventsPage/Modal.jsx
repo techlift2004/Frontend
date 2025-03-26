@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import logo from '../../assets/tech lift copy 4 1.svg';
+import  {signup} from '../../Firebase';
 
 const Modal = ({ modall, setModall }) => {
   const [formData, setFormData] = useState({
@@ -14,18 +15,28 @@ const Modal = ({ modall, setModall }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted", formData);
-    setFormData({ name: '', email: '', phone: '' });
 
+    // Validate form fields BEFORE resetting state
     if (!formData.name || !formData.email || !formData.phone) {
       toast.error("All fields are required!");
       return;
     }
 
-    toast.success("Details added successfully!");
-    setTimeout(() => setModall(false), 2000);
+    try {
+      await signup(formData.name, formData.email, formData.phone); // Save to Firebase
+      toast.success("Details added successfully!");
+
+      // Reset form after successful submission
+      setFormData({ name: '', email: '', phone: '' });
+
+      // Close modal after 2 seconds
+      setTimeout(() => setModall(false), 2000);
+    } catch (error) {
+      toast.error("Error adding details. Try again.");
+      console.error("Signup error:", error);
+    }
   };
 
   return (
