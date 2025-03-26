@@ -17,6 +17,7 @@ const Modal = ({ modall, setModall }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Submitted", formData);
+    setFormData({ name: '', email: '', phone: '' });
 
     if (!formData.name || !formData.email || !formData.phone) {
       toast.error("All fields are required!");
