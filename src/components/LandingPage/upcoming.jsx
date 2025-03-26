@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import upcomingimg from "../../assets/upcomingimg.svg";
+import { NavLink } from "react-router-dom";
 
 const events = [
   {
@@ -115,10 +116,10 @@ const Upcoming = () => {
                 <img src={upcomingimg} alt="Event" className="w-full h-auto mb-4" />
                 <h3 className="text-xl font-bold mb-3">{event.title}</h3>
                 <p className="text-gray-700 text-sm mb-4">{event.description}</p>
-                <button className="border border-purple-800 text-purple-800 px-4 cursor-pointer py-2 rounded-lg
+                <NavLink to='/events' className="border border-purple-800 text-purple-800 px-4 cursor-pointer py-2 rounded-lg
                                  hover:bg-purple-800 hover:text-white transition duration-300">
                   {event.buttonText}
-                </button>
+                </NavLink>
               </motion.div>
             </SwiperSlide>
           ))}
