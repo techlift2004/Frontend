@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import eventImg from '../../assets/Rectangle 42.svg'
+import Modal from './Modal'
 
 const AllEvents = () => {
+    const[modall, setModall] = useState(false)
     const eventData = [
         {
             eventTitle: 'Hackerthon',
@@ -58,16 +60,19 @@ const AllEvents = () => {
                 {
                     eventData.map((item, index) => {
                         return (
-                            <div key={index} className={`text-center bg-[#F5F5DCD4] ${index === 8 ? "md:bg-red-500 md:mx-auto" : "md:mx-auto"}`}>
-                                <img src={item.eventImg} alt="event" className='w-full' />
-                                <h1 className='my-5 font-extrabold text-2xl'>{item.eventTitle}</h1>
-                                <p className='text-xl'>{item.eventBio}</p>
-                                <button className='text-xl my-5 border-2 rounded p-2 px-5 border-[#4B0082] hover:bg-[#4B0082] hover:text-white'>Register</button>
+                            <div>
+                                <div key={index} className={`text-center bg-[#F5F5DCD4] rounded`}>
+                                    <img src={item.eventImg} alt="event" className='w-full' />
+                                    <h1 className='my-5 font-extrabold text-2xl'>{item.eventTitle}</h1>
+                                    <p className='text-xl'>{item.eventBio}</p>
+                                    <button className='text-xl my-5 border-2 rounded p-2 px-5 border-[#4B0082] hover:bg-[#4B0082] hover:text-white' onClick={()=>setModall(true)}>Register</button>
+                                </div>
                             </div>
                         )
                     })
                 }
             </div>
+            <Modal modall={modall} setModall={setModall}/>
         </div>
     )
 }
