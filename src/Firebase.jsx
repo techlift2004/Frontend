@@ -9,7 +9,8 @@ const firebaseConfig = {
     projectId: "techlift-b65b1",
     storageBucket: "techlift-b65b1.firebasestorage.app",
     messagingSenderId: "1092700057609",
-    appId: "1:1092700057609:web:6c3d8486c82480bd2cc8d8"
+    appId: "1:1092700057609:web:0f61bc7d6d1274252cc8d8"
+    
 };
 
 // Initialize Firebase
@@ -25,7 +26,7 @@ const signup = async (name, email, number) => {
             email,
             number
         });
-        // console.log("Document written with ID:", docRef.id);
+        console.log("Document written with ID:", docRef.id);
     } catch (error) {
         console.error("Error adding document:", error);
     }
