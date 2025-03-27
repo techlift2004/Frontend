@@ -18,7 +18,7 @@ export default function langing() {
       <About />
       <Upcoming />
       <Memberscomment />
-      <Blog />
+      {/* <Blog /> */}
       <Faq />
       <Footer />
     </div>

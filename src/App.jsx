@@ -6,6 +6,8 @@ import Contact from './pages/contact';
 import Join from './pages/joinus';
 import AboutPage from './pages/AboutPage';
 import Events from './pages/Events';
+import Blog from './pages/Blog';
+import PostPage from "./pages/seeblog"
 
 function App() {
   return (
@@ -17,7 +19,8 @@ function App() {
           <Route path="/join" element={<Join />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path='/events' element={<Events />} />
-          {/* <Route path="*" element={<h1>404 Not Found</h1>} /> */}
+          <Route path='/blog' element={<Blog />} />
+          <Route path= "post/:slug" element= {<PostPage />} />
         </Routes>
       </BrowserRouter>
     </>
