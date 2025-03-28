@@ -11,7 +11,7 @@ export default function Hero() {
   };
 
   return (
-    <div className="flex flex-col xl:flex-row justify-center gap-10 md:gap-10 items-center px-5 md:px-20 xl:pt-20 pt-36">
+    <div className="grid grid-cols-1 lg:grid-cols-2   place-items-center px-5 md:px-20 xl:pt-20 pt-36">
       
       <motion.div
         initial={{ x: -100, opacity: 0 }}

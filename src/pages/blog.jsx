@@ -12,6 +12,7 @@ import { PiClock } from "react-icons/pi";
 import { motion, useInView } from "framer-motion";
 import imageUrlBuilder from "@sanity/image-url";
 const builder = imageUrlBuilder(client);
+import img1 from "../assets/Group 49.svg";
 
 const POSTS_QUERY = `*[ 
   _type == "post" 
@@ -92,23 +93,16 @@ const imageUrl = post.mainImage?.asset?._id
       initial={{ y: 50, opacity: 0 }}
       animate={{ y: inView ? 0 : 50, opacity: inView ? 1 : 0 }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
-      className="bg-gray-200 h-[400px] rounded-xl shadow-md overflow-hidden p-5"
+      className="bg-gray-200 h-[500px] rounded-xl shadow-md overflow-hidden p-5"
     >
-      <div className="relative">
-      {imageUrl ? (
+      <div className="relative h-[250px]">
+      
           <img
-            src={imageUrl}
+            src={img1}
             alt={post.title}
             className="w-full h-full object-cover"
-            onError={(e) => {
-              e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%234B0082'/%3E%3Ctext x='50%' y='50%' font-family='Arial' font-size='20' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'%3EImage not available%3C/text%3E%3C/svg%3E";
-            }}
+           
           />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-[#4B0082] text-white">
-            No image available
-          </div>
-        )}
        
       </div>
 

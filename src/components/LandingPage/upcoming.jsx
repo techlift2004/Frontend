@@ -88,7 +88,7 @@ const Upcoming = () => {
             onClick={() => swiperRef.current?.slidePrev()}
           />
         </button>
-        <button className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 z-10 hidden xl:block">
+        <button className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 z-10 hidden xl:block ">
           <ChevronRight
             size={30}
             className="text-purple-800 cursor-pointer"

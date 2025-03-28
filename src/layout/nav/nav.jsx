@@ -54,16 +54,7 @@ export default function Nav() {
         >
           Blog
         </NavLink>
-        <NavLink
-          to="/faqs"
-          className={({ isActive }) =>
-            `cursor-pointer ${
-              isActive ? "border-b-2 border-[#4B0082]" : "hover:text-[#4B0082]"
-            }`
-          }
-        >
-          FAQs
-        </NavLink>
+  
         <NavLink
           to="/contact"
           className={({ isActive }) =>

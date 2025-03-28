@@ -5,6 +5,7 @@ import { FaInstagram } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaRegCopyright } from "react-icons/fa";
+import { Link } from "react-router-dom"
 
 
 export default function footer() {
@@ -20,21 +21,21 @@ export default function footer() {
         <div className='flex flex-col justify-center items-center md:items-start gap-4'>
           <h1 className='text-[24px] font-bold text-center md:text-start'>Quick Links</h1>
           <ul className='flex flex-col justify-center items-start gap-4'>
-            <li className='text-[16px] font-normal text-center md:text-start w-[240px]  '>FAQs</li>
-            <li className='text-[16px] font-normal text-center md:text-start w-[240px]  '>Blogs</li>
-            <li className='text-[16px] font-normal text-center md:text-start w-[240px]  '>Upcoming Events</li>
-            <li className='text-[16px] font-normal text-center md:text-start w-[240px]  '>Contact Us</li>
+            <Link to='' className='text-[16px] font-normal text-center md:text-start w-[240px]  '>FAQs</Link>
+            <Link to='' className='text-[16px] font-normal text-center md:text-start w-[240px]  '>Blogs</Link>
+            <Link to='' className='text-[16px] font-normal text-center md:text-start w-[240px]  '>Upcoming Events</Link>
+            <Link to='' className='text-[16px] font-normal text-center md:text-start w-[240px]  '>Contact Us</Link>
           </ul>
         </div>
 
         <div className='flex flex-col justify-center items-center md:items-start gap-4'>
           <h1 className='text-[24px] font-bold text-center md:text-start'>Connect</h1>
           <ul className='flex flex-col justify-center items-center md:items-start gap-4'>
-            <li className='text-[16px] font-normal text-center md:text-start w-[240px] flex flex-row items-center place-content-center md:place-content-start gap-2 '><AiOutlineFacebook className='' />Facebook</li>
-            <li className='text-[16px] font-normal text-center md:text-start w-[240px] flex flex-row items-center gap-2 place-content-center md:place-content-start '><FaWhatsapp />Whatsapp</li>
-            <li className='text-[16px] font-normal text-center md:text-start w-[240px] flex flex-row items-center gap-2 place-content-center md:place-content-start'><FaInstagram />Instagram</li>
-            <li className='text-[16px] font-normal text-center md:text-start w-[240px] flex flex-row items-center gap-2 place-content-center md:place-content-start '><CiLinkedin />Linkedin</li>
-            <li className='text-[16px] font-normal text-center md:text-start w-[240px] flex flex-row items-center gap-2 place-content-center md:place-content-start '><FaXTwitter />Twitter</li>
+            <Link to='' className='text-[16px] font-normal text-center md:text-start w-[240px] flex flex-row items-center place-content-center md:place-content-start gap-2 '><AiOutlineFacebook className='' />Facebook</Link>
+            <Link to=''i className='text-[16px] font-normal text-center md:text-start w-[240px] flex flex-row items-center gap-2 place-content-center md:place-content-start '><FaWhatsapp />Whatsapp</Link>
+            <Link to='' className='text-[16px] font-normal text-center md:text-start w-[240px] flex flex-row items-center gap-2 place-content-center md:place-content-start'><FaInstagram />Instagram</Link>
+            <Link to='' className='text-[16px] font-normal text-center md:text-start w-[240px] flex flex-row items-center gap-2 place-content-center md:place-content-start '><CiLinkedin />Linkedin</Link>
+            <Link to='' className='text-[16px] font-normal text-center md:text-start w-[240px] flex flex-row items-center gap-2 place-content-center md:place-content-start '><FaXTwitter />Twitter</Link>
           </ul>
         </div>
 
