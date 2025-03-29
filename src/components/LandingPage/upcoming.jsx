@@ -110,13 +110,13 @@ const Upcoming = () => {
                 initial={{ y: 100, opacity: 0 }}
                 animate={isInView ? { y: 0, opacity: 1 } : {}}
                 transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.2 }}
-                className="bg-[#F5F5DC] rounded-xl p-6 flex flex-col items-center text-center shadow-md
+                className="bg-[#4B0082] rounded-xl p-6 flex flex-col items-center text-center shadow-md
                           hover:shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out"
               >
                 <img src={upcomingimg} alt="Event" className="w-full h-auto mb-4" />
-                <h3 className="text-xl font-bold mb-3">{event.title}</h3>
-                <p className="text-gray-700 text-sm mb-4">{event.description}</p>
-                <NavLink to='/events' className="border border-purple-800 text-purple-800 px-4 cursor-pointer py-2 rounded-lg
+                <h3 className="text-xl text-white font-bold mb-3">{event.title}</h3>
+                <p className="text-gray-700 text-white text-sm mb-4">{event.description}</p>
+                <NavLink to='/events' className="border border-white text-white px-4 cursor-pointer py-2 rounded-lg
                                  hover:bg-purple-800 hover:text-white transition duration-300">
                   {event.buttonText}
                 </NavLink>

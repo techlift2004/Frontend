@@ -75,7 +75,7 @@ const Joinus = () => {
           <lable className='flex flex-col gap-4 justify-center items-start '>
               <p className='font-normal text-[16px]'>Select Stack</p>
               <select required className='w-full xl:w-[266px] h-[62px] bg-[#D9D9D9] outline-none  rounded-[10px] px-4 ' >
-                <option hidden >Select your stack</option>
+                <option hidden > your stack</option>
                 <option>Frontend</option>
                 <option>Backend</option>
                 <option>Product Designer</option>
@@ -109,17 +109,17 @@ const Joinus = () => {
 
        {/* Modal */}
        {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed inset-0 flex items-center justify-center  bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-80 text-center">
             <h2 className="text-lg font-semibold text-green-600">✅ Details Submitted Successfully!</h2>
             <p className="mt-2 text-gray-700">Join our community to stay updated.</p>
 
             {/* Join Button */}
             <a
-              href="https://yourcommunitylink.com" // Replace with your actual community link
+              href="https://chat.whatsapp.com/Lr5HyhTJi60EeqMgw5S2Mu" // Replace with your actual community link
               target="_blank"
               rel="noopener noreferrer"
-              className="block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              className="block mt-4 px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800"
             >
               Join the Community
             </a>

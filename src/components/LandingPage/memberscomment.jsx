@@ -89,13 +89,13 @@ const AnimatedCard = ({ item, index }) => {
       initial={{ x: index % 2 === 0 ? -100 : 100, opacity: 0 }}
       animate={{ x: isInView ? 0 : index % 2 === 0 ? -100 : 100, opacity: isInView ? 1 : 0 }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
-      className="flex flex-col justify-center gap-4 items-start p-4 w-[300px] h-[350px] bg-gray-300 rounded-lg shadow-md"
+      className="flex flex-col justify-center gap-4 items-start p-4 w-[300px] h-[350px] bg-[#4B0082] rounded-lg shadow-md"
     >
       <div className="flex items-center gap-2">
         <img src={item.image} alt={item.name} className="w-16 h-16 rounded-full" />
-        <p className="font-bold text-[20px]">{item.name}</p>
+        <p className="font-bold text-white text-[20px]">{item.name}</p>
       </div>
-      <p className="text-[16px] text-center">{item.comment}</p>
+      <p className="text-[16px] text-white text-center">{item.comment}</p>
     </motion.div>
   );
 };

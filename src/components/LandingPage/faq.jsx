@@ -1,16 +1,43 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 
-const texts = [
-  { title: "What is Techlift" },
-  { title: "Who can join Techlift" },
-  { title: "How can I become a member of TechLift ?" },
-  { title: "What Learning opportunities does TechLift offer" },
-  { title: "Are the learning programs free ?" },
-  { title: "Do I need prior experience in tech to participate ?" },
-  { title: "How does TechLift help me connect with others in tech ?" },
-  { title: "Can I find mentors through TechLift ?" },
-  { title: "How do I stay updated on TechLift activities ?" },
+const faqs = [
+  { 
+    question: "What is Techlift?", 
+    answer: "TechLift is a community that helps individuals grow in tech by providing learning opportunities, mentorship, and networking." 
+  },
+  { 
+    question: "Who can join Techlift?", 
+    answer: "Anyone interested in technology, from beginners to experienced professionals, can join TechLift." 
+  },
+  { 
+    question: "How can I become a member of TechLift?", 
+    answer: "You can become a member by signing up on our website and joining our community channels." 
+  },
+  { 
+    question: "What learning opportunities does TechLift offer?", 
+    answer: "We offer free workshops, mentorship programs, online courses, and hands-on projects." 
+  },
+  { 
+    question: "Are the learning programs free?", 
+    answer: "Yes, most of our learning programs are free to help more people get into tech." 
+  },
+  { 
+    question: "Do I need prior experience in tech to participate?", 
+    answer: "No, beginners are welcome! We provide resources to help you start from scratch." 
+  },
+  { 
+    question: "How does TechLift help me connect with others in tech?", 
+    answer: "We organize networking events, mentorship programs, and an active online community for discussions." 
+  },
+  { 
+    question: "Can I find mentors through TechLift?", 
+    answer: "Yes, we connect members with experienced mentors who guide them on their tech journey." 
+  },
+  { 
+    question: "How do I stay updated on TechLift activities?", 
+    answer: "Follow our social media channels and subscribe to our newsletter for updates." 
+  },
 ];
 
 export default function Faq() {
@@ -25,32 +52,53 @@ export default function Faq() {
       </div>
 
       {/* FAQ Items */}
-      {texts.map((text, index) => (
-        <FaqItem key={index} index={index} title={text.title} />
+      {faqs.map((faq, index) => (
+        <FaqItem key={index} index={index} question={faq.question} answer={faq.answer} />
       ))}
     </div>
   );
 }
 
-function FaqItem({ title, index }) {
-  const ref = React.useRef();
-  const [inView, setInView] = React.useState(false);
-
+function FaqItem({ question, answer, index }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef();
   const isInView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
 
-  React.useEffect(() => {
-    if (isInView) setInView(true);
+  useEffect(() => {
+    if (isInView) setIsOpen(false);
   }, [isInView]);
 
   return (
     <motion.div
       ref={ref}
       initial={{ x: -50, opacity: 0 }}
-      animate={{ x: inView ? 0 : -50, opacity: inView ? 1 : 0 }}
+      animate={{ x: isInView ? 0 : -50, opacity: isInView ? 1 : 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="shadow rounded-[3px] bg-[#FFFFFF] text-start w-[300px] md:w-[600px] xl:w-[1040px] h-[102px] flex items-center cursor-pointer"
+      className="shadow rounded-[3px] bg-[#FFFFFF] text-start w-[300px] md:w-[600px] xl:w-[1040px] cursor-pointer"
     >
-      <p className="px-10 font-bold text md:text-[25px]">{title}</p>
+      {/* Question */}
+      <div
+        className="h-[80px] flex items-center justify-between px-10 font-bold md:text-[20px]"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <p>{question}</p>
+        <motion.span
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          ▼
+        </motion.span>
+      </div>
+
+      {/* Answer (Dropdown) */}
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        className="overflow-hidden px-10 pb-4 text-[16px] text-gray-600"
+      >
+        {answer}
+      </motion.div>
     </motion.div>
   );
 }

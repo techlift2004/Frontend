@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom"; // Assuming React Router is 
 import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "@portabletext/react"; // PortableText library for rendering Sanity content
 import { client } from "../sanityClient"; // Adjust the path to your Sanity client
+import Nav from "../layout/nav/nav"; // Adjust the path to your Nav component
+import Footer from "../layout/footer/footer"; 
 
 
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
@@ -45,7 +47,9 @@ const PostPage = () => {
     : null;
 
   return (
-    <main className="container mx-auto min-h-screen max-w-3xl p-8 flex flex-col gap-4">
+    <div>
+      <Nav />
+    <main className="container mx-auto min-h-screen max-w-3xl p-8 pt-20 flex flex-col gap-4">
       <Link to="/blog" className="hover:underline">
         ← Back to posts
       </Link>
@@ -64,6 +68,8 @@ const PostPage = () => {
         {Array.isArray(post.body) && <PortableText value={post.body} />}
       </div>
     </main>
+      <Footer />
+    </div>  
   );
 };
 

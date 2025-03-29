@@ -10,8 +10,23 @@ export default function contact() {
     <div>
         <Nav />
      
-        <div className="flex flex-col xl:flex-row justify-center gap-10 md:gap-0 items-center bg-[#F5F5DC] px-5 md:px-20 xl:pt-20 pt-36">
-        <motion.div
+        <div className="grid grid-cols-1 flex lg:grid-cols-2 place-items-center h-[500px] overflow-hidden bg-[#4B0082] px-5 md:px-20 xl:pt-20 pt-36">
+       
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className=" flex flex-col justify-center gap-4 items-center xl:items-start lg:mt-[-200px] xl:pb-0"
+      >
+        <h1 className="md:text-[40px] text-[32px] text-[#ffffff] font-bold md:w-[500px] text-center xl:text-start">
+        Get In Touch
+        </h1>
+        <p className="md:text-[26px] text-[20px] text-[#ffffff] font-normal md:w-[422px] text-center xl:text-start">
+        Got any questions or concerns?
+        </p>
+      </motion.div>
+
+      <motion.div
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, type: "spring", stiffness: 100 }}
@@ -19,24 +34,11 @@ export default function contact() {
         <motion.img
           src={heroimg}
           alt="heroimg"
-          className="md:h-[600px] pl-20 xl:pl-0"
+          className="md:h-[600px] pt-20 lg:pt-0 pl-20 xl:pl-0"
           initial={{ y: 20 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
         />
-      </motion.div>
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className=" flex flex-col justify-center gap-4 items-center xl:items-start pb-10 xl:pb-0"
-      >
-        <h1 className="md:text-[40px] text-[32px] text-[#000000] font-bold md:w-[500px] text-center xl:text-start">
-         Contact Us
-        </h1>
-        <p className="md:text-[26px] text-[20px] text-[#000000] font-normal md:w-[422px] text-center xl:text-start">
-        Starting in tech can be challenging, but you’re not alone—contact us, and we’ll walk the path with you.
-        </p>
       </motion.div>
 
       

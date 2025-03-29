@@ -11,9 +11,9 @@ export default function About() {
     const isInView = useInView(ref, { triggerOnce: true, threshold: 0.2 });
     return (
         <>
-            <div className="bg-[#F5F5DC] pt-36">
-                <h1 className="text-center font-extrabold text-5xl">About Us</h1>
-                <p className="text-center text-[1.3rem] px-20 mt-8">
+            <div className="bg-[#4B0082] pt-36">
+                <h1 className="text-center font-extrabold text-white text-5xl">About Us</h1>
+                <p className="text-center text-[1.3rem] text-white px-20 mt-8">
                     We are a team of techies ensuring that the next generation of techies have access to the right resources and community.  we share knowledge, and empower growth through discussions resources and networking
                 </p>
                 <div className="flex justify-center items-center p-5 relative top-28 m-auto max-w-[70rem] mt-[-3rem]">

@@ -6,7 +6,7 @@ import Contact from './pages/contact';
 import Join from './pages/joinus';
 import AboutPage from './pages/AboutPage';
 import Events from './pages/Events';
-import Blog from './pages/Blog';
+import Blog from './pages/blog';
 import PostPage from "./pages/seeblog"
 
 function App() {
