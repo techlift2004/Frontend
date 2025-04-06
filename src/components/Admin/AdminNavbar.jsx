@@ -1,0 +1,35 @@
+import React from 'react'
+import Logo from "../../assets/techLift.png";
+import { NavLink } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
+
+const AdminNavbar = ({setIsOpen, setPadd}) => {
+    return (
+        <div className='flex flex-row justify-between items-center px-8 bg-[#FFFFFF] h-[64px] w-[100%] overflow-hidden fixed z-1000 shadow'>
+            <div className='flex justify-start items-center gap-x-4'>
+            <div
+                className="bg-[#4B0082] border-2 border-[#4B0082] rounded p-[5px] cursor-pointer"
+                onClick={() => {
+                    setIsOpen((prev) => !prev);
+                    setPadd((prev) => !prev); 
+                }}
+            >
+                    <FaBars size={15} className='text-white' />
+                </div>
+                
+                <img src={Logo} alt='techLift-logo' className='w-[8rem]' />
+            </div>
+            
+            <button className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer">
+                <NavLink to='/'>
+                    Logout
+                </NavLink>
+            </button>
+            {/* <button className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer">
+                T
+            </button> */}
+        </div>
+    )
+}
+
+export default AdminNavbar

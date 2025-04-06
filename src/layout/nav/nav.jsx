@@ -97,9 +97,14 @@ export default function Nav() {
         </ul>
       </div>
 
-      <button className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer hidden md:block">
-        Sponsor Us
-      </button>
+      <div className="flex justify-between items-center gap-5">
+        <button className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer hidden md:block">
+          Sponsor Us
+        </button>
+        <NavLink to={'/events/admin'} className="lg:flex justify-center items-center m-auto bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer hidden md:block">
+          Admin
+        </NavLink>
+      </div>
     </motion.div>
   );
 }

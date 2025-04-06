@@ -69,3 +69,13 @@ button:focus-visible {
 
 
 @import "tailwindcss";
+
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@layer base {
+  .transformation{
+    transition: all 0.3s ease-in-out;
+  }
+}
