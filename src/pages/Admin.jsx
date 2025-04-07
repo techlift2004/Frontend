@@ -1,22 +1,34 @@
-import React from 'react'
-import AdminNavbar from '../components/Admin/AdminNavbar'
-import AdminSidebar from '../components/Admin/AdminSidebar'
-import AdminDashboard from '../components/Admin/AdminDashboard'
-import AdminEvents from '../components/Admin/AdminEvents'
-import AdminRegistration from '../components/Admin/AdminRegistration'
+import React, { useState, useEffect } from 'react';
+import AdminNavbar from '../components/Admin/AdminNavbar';
+import AdminSidebar from '../components/Admin/AdminSidebar';
+import AdminDashboard from '../components/Admin/AdminDashboard';
+import AdminEvents from '../components/Admin/AdminEvents';
+import AdminRegistration from '../components/Admin/AdminRegistration';
 
 const Admin = () => {
-    const [isOpen, setIsOpen] = React.useState(true);
-    const [padd, setPadd] = React.useState(true);
+    const [isOpen, setIsOpen] = useState(true);
+    const [padd, setPadd] = useState(true);
+    const [activate, setActivate] = useState(true);
+
+    useEffect(() => {
+        const adminId = sessionStorage.getItem('adminId');
+        if (adminId !== 'mayor') {
+            setActivate(false);
+            window.location.href = '/'; 
+        }
+    }, []);
+
+    if (!activate) return null;
+
     return (
         <>
-            <AdminNavbar setIsOpen={setIsOpen} setPadd={setPadd}/>
-            <AdminSidebar isOpen={isOpen}/>
+            <AdminNavbar setIsOpen={setIsOpen} setPadd={setPadd} />
+            <AdminSidebar isOpen={isOpen} />
             <AdminDashboard padd={padd} />
             <AdminEvents padd={padd} />
             <AdminRegistration padd={padd} />
         </>
-    )
-}
+    );
+};
 
-export default Admin
+export default Admin;

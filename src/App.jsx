@@ -9,7 +9,7 @@ import Blog from './pages/blog';
 import PostPage from './pages/seeblog';
 import Admin from './pages/Admin';
 import NotFound from './pages/NotFound';
-import { AdminController } from './components/Admin/AdminController'; // ✅ Add this line
+import { AdminController } from './components/Admin/AdminController';
 
 function App() {
   return (
@@ -22,8 +22,6 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/post/:slug" element={<PostPage />} />
         <Route path="/events" element={<Events />} />
-
-        {/* ✅ Wrap Admin with its context provider */}
         <Route
           path="/admin"
           element={

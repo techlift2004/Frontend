@@ -21,14 +21,9 @@ const AdminNavbar = ({setIsOpen, setPadd}) => {
                 </NavLink>
             </div>
             
-            <button className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer">
-                <NavLink to='/'>
-                    Logout
-                </NavLink>
-            </button>
-            {/* <button className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer">
-                T
-            </button> */}
+            <div className='bg-[#4B0082] border-2 border-[#4B0082] rounded-full py-[8px] px-[15px] cursor-pointer'>
+                <h1 className='font-extrabold text-white'>T</h1>
+            </div>
         </div>
     )
 }
