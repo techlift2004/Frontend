@@ -22,8 +22,6 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/post/:slug" element={<PostPage />} />
         <Route path="/events" element={<Events />} />
-
-        {/* ✅ Wrap Admin with its context provider */}
         <Route
           path="/admin"
           element={
