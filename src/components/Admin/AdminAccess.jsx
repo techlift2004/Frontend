@@ -3,47 +3,36 @@ import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 const AdminAccess = ({ openAccess, setOpenAccess }) => {
-    const [validator, setValidator] = useState(false);
     const [adminId, setAdminId] = useState('');
+    const [validator, setValidator] = useState(null);
     const navigate = useNavigate();
     const inputRef = useRef(null);
 
     useEffect(() => {
         if (openAccess) {
-            inputRef.current.focus(); // Focus the input when the modal opens
+            inputRef.current.focus();
         }
-    }, [openAccess]); // Use effect on openAccess change
+    }, [openAccess]);
 
-    if (!openAccess) return null; // Early return if not open
+    if (!openAccess) return null;
 
-    const IdChecker = (e) => {
-        const inputId = e.target.value;
-        setAdminId(inputId);
-
-        if (!sessionStorage.getItem('id')) {
-            sessionStorage.setItem('id', 'mayor'); // Set ID if not already set
-        }
-
-        const storedId = sessionStorage.getItem('id');
-        if (inputId === storedId) {
-            setValidator(true);
-        } else {
-            setValidator(false);
-        }
+    const handleChange = (e) => {
+        const inputValue = e.target.value;
+        setAdminId(inputValue);
+        setValidator(inputValue === 'mayor');
     };
 
     const handleVerify = () => {
-        if (validator) {
-            sessionStorage.removeItem('id'); // Clear ID after verification
+        if (adminId === 'mayor') {
+            sessionStorage.setItem('adminId', 'mayor');
             navigate('/admin');
-        } else {
-            setValidator(false); // Optional, redundant, can be removed
         }
     };
 
     const handleClose = () => {
         setOpenAccess(false);
-        sessionStorage.removeItem('id'); // Clear ID on close
+        setAdminId('');
+        setValidator(null);
     };
 
     return (
@@ -51,20 +40,24 @@ const AdminAccess = ({ openAccess, setOpenAccess }) => {
             <div className="p-6 bg-white shadow-lg rounded-lg max-w-md mx-auto mt-10 w-full">
                 <h1 className="text-2xl font-bold">Verify Admin Access</h1>
                 <span className="text-sm text-gray-500">(only authorized personnel)</span>
+
                 <div className="mt-4">
                     <label htmlFor="adminId" className="block text-sm font-medium">Admin ID</label>
                     <input
                         ref={inputRef}
                         type="text"
                         value={adminId}
-                        onChange={IdChecker}
+                        onChange={handleChange}
+                        onKeyDown={(e) => e.key === 'Enter' && handleVerify()}
                         placeholder="Enter Admin ID"
                         className="w-full mt-1 p-2 border rounded"
                     />
-                    <span className="text-red-500 flex items-center gap-x-2">
-                        {validator ? <FaCheckCircle className='text-green-500' /> : <FaTimesCircle />} 
-                        {validator ? <span className='text-green-500'>ID exists!!!</span> : <span className='text-red-500'>ID does not exist!!!</span>}
-                    </span>
+                    {validator !== null && (
+                        <span className={`flex items-center gap-x-2 mt-2 ${validator ? 'text-green-500' : 'text-red-500'}`}>
+                            {validator ? <FaCheckCircle /> : <FaTimesCircle />}
+                            {validator ? 'ID is correct!' : 'ID is incorrect!'}
+                        </span>
+                    )}
                 </div>
 
                 <div className="mt-4 flex gap-4 justify-end">

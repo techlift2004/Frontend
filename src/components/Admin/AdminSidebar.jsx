@@ -23,6 +23,7 @@ const AdminSidebar = ({ isOpen }) => {
     const navigate = useNavigate();
 
     const navigation = () => {
+        sessionStorage.removeItem('adminId');
         navigate("/");
     };
 
