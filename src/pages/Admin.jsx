@@ -1,8 +1,9 @@
 import React from 'react'
-// import AdminPanel from '../components/Admin/AdminPanel'
 import AdminNavbar from '../components/Admin/AdminNavbar'
 import AdminSidebar from '../components/Admin/AdminSidebar'
 import AdminDashboard from '../components/Admin/AdminDashboard'
+import AdminEvents from '../components/Admin/AdminEvents'
+import AdminRegistration from '../components/Admin/AdminRegistration'
 
 const Admin = () => {
     const [isOpen, setIsOpen] = React.useState(true);
@@ -11,8 +12,9 @@ const Admin = () => {
         <>
             <AdminNavbar setIsOpen={setIsOpen} setPadd={setPadd}/>
             <AdminSidebar isOpen={isOpen}/>
-            {/* <AdminPanel /> */}
             <AdminDashboard padd={padd} />
+            <AdminEvents padd={padd} />
+            <AdminRegistration padd={padd} />
         </>
     )
 }

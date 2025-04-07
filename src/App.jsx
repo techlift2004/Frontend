@@ -8,7 +8,8 @@ import Events from './pages/Events';
 import Blog from './pages/blog';
 import PostPage from './pages/seeblog';
 import Admin from './pages/Admin';
-import NotFound from './pages/NotFound'
+import NotFound from './pages/NotFound';
+import { AdminController } from './components/Admin/AdminController'; // ✅ Add this line
 
 function App() {
   return (
@@ -21,7 +22,17 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/post/:slug" element={<PostPage />} />
         <Route path="/events" element={<Events />} />
-        <Route path="admin" element={<Admin />} />
+
+        {/* ✅ Wrap Admin with its context provider */}
+        <Route
+          path="/admin"
+          element={
+            <AdminController>
+              <Admin />
+            </AdminController>
+          }
+        />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

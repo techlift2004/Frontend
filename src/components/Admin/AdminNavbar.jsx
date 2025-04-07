@@ -16,8 +16,9 @@ const AdminNavbar = ({setIsOpen, setPadd}) => {
             >
                     <FaBars size={15} className='text-white' />
                 </div>
-                
-                <img src={Logo} alt='techLift-logo' className='w-[8rem]' />
+                <NavLink to='/'>
+                    <img src={Logo} alt='techLift-logo' className='w-[8rem]' />
+                </NavLink>
             </div>
             
             <button className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer">
