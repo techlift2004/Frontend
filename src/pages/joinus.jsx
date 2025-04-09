@@ -78,6 +78,12 @@ const Joinus = () => {
               <option>Product Designer</option>
               <option>Project Manager</option>
               <option>FullStack</option>
+              <option>Social Media Manager</option>
+              <option>Web3</option>
+              <option>Cyber Security</option>
+              <option>Crypto / Forex</option>
+              <option>QA Tester</option>
+              <option>Content Creation</option>
             </select>
           </label>
 
