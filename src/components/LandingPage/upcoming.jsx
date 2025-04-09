@@ -78,7 +78,7 @@ const Upcoming = () => {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="py-10 px-5 bg-[#FFFFFF] items-center place-content-center w-full"
     >
-      <h2 className="text-center text-2xl font-bold mb-6">Upcoming Events</h2>
+      <h2 className="text-center text-2xl font-bold font-poppins mb-6">Upcoming Events</h2>
       
       <div className="relative max-w-5xl mx-auto">
         <button className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 z-10 hidden xl:block">
@@ -114,9 +114,9 @@ const Upcoming = () => {
                           hover:shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out"
               >
                 <img src={upcomingimg} alt="Event" className="w-full h-auto mb-4" />
-                <h3 className="text-xl text-white font-bold mb-3">{event.title}</h3>
-                <p className="text-gray-700 text-white text-sm mb-4">{event.description}</p>
-                <NavLink to='/events' className="border border-white text-white px-4 cursor-pointer py-2 rounded-lg
+                <h3 className="text-xl text-white font-bold font-poppins mb-3">{event.title}</h3>
+                <p className="text-gray-700 text-white font-montserrat text-sm mb-4">{event.description}</p>
+                <NavLink to='/events' className="border font-montserrat border-white text-white px-4 cursor-pointer py-2 rounded-lg
                                  hover:bg-purple-800 hover:text-white transition duration-300">
                   {event.buttonText}
                 </NavLink>

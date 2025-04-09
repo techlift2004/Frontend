@@ -12,8 +12,8 @@ export default function About() {
     return (
         <>
             <div className="bg-[#4B0082] pt-36">
-                <h1 className="text-center font-extrabold text-white text-5xl">About Us</h1>
-                <p className="text-center text-[1.3rem] text-white px-20 mt-8">
+                <h1 className="text-center font-extrabold text-white text-5xl font-poppins">About Us</h1>
+                <p className="text-center text-[1.3rem] text-white px-20 mt-8 font-poppins">
                     We are a team of techies ensuring that the next generation of techies have access to the right resources and community.  we share knowledge, and empower growth through discussions resources and networking
                 </p>
                 <div className="flex justify-center items-center p-5 relative top-28 m-auto max-w-[70rem] mt-[-3rem]">
@@ -30,7 +30,7 @@ export default function About() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="flex flex-col justify-center items-center py-10 pt-36 gap-5 px-8 md:px-20"
             >
-                <p className="text-center md:w-[765px] font-bold">
+                <p className="text-center md:w-[765px] font-montserrat font-bold">
                     We ensure that as someone starting out in tech, you have  access to the right resources, seminars, work shops and tech events where you can network with professionals in tech and gain exposure that will help you grow
                 </p>
             
@@ -50,8 +50,8 @@ export default function About() {
                             animate={isInView ? { y: 0, opacity: 1 } : {}}
                             transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
                         >
-                            <h1 className="font-bold text-[24px] text-center md:text-start">Our Vision</h1>
-                            <p className="font-normal text-center xl:w-[465px] md:text-start">
+                            <h1 className="font-bold text-[24px] text-center md:text-start font-poppins">Our Vision</h1>
+                            <p className="font-normal text-center xl:w-[465px] md:text-start font-poppins">
                                 To be a leading community that bridges the gap for upcoming techies, inspiring a new generation of skilled and confident 
                                 technology professionals equipped to transform the future.
                             </p>
@@ -62,8 +62,8 @@ export default function About() {
                             animate={isInView ? { y: 0, opacity: 1 } : {}}
                             transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
                         >
-                            <h1 className="font-bold text-[24px] text-center md:text-start">Our Mission</h1>
-                            <p className="font-normal text-center xl:w-[465px] md:text-start">
+                            <h1 className="font-bold text-[24px] text-center md:text-start font-poppins">Our Mission</h1>
+                            <p className="font-normal text-center xl:w-[465px] md:text-start font-poppins">
                                 To empower aspiring tech enthusiasts by providing access to comprehensive resources, courses, workshops, and soft skills training. 
                                 Fostering growth, collaboration, and innovation in technology.
                             </p>

@@ -49,20 +49,21 @@ const PostPage = () => {
   return (
     <div>
       <Nav />
-    <main className="container mx-auto min-h-screen max-w-3xl p-8 pt-20 flex flex-col gap-4">
+    <main className="container place-items-center mx-auto min-h-screen max-w-3xl p-8 pt-20 px-20 flex flex-col gap-4">
       <Link to="/blog" className="hover:underline">
         ← Back to posts
       </Link>
-      <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
+     
       {postImageUrl && (
         <img
           src={postImageUrl}
           alt={post.title}
-          className="aspect-video rounded-xl"
-          width="550"
+          className="aspect-video rounded-xl place-items-center"
+          width="100%"
           height="310"
         />
       )}
+       <h1 className="text-4xl text-center font-bold font-poppins mb-8">{post.title}</h1>
       <div className="prose">
         <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
         {Array.isArray(post.body) && <PortableText value={post.body} />}

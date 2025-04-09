@@ -64,23 +64,23 @@ const Form = () => {
         </div>
 
         <form className='flex flex-col gap-3 xl:gap-7 pb-[10px] xl:px-0'>
-            <h2 className='font-bold text-[24px]'>Send us a message</h2>
+            <h2 className='font-bold text-[24px] font-poppins'>Send us a message</h2>
             <lable className='flex flex-col gap-4 justify-center items-start '>
-                <p className='font-normal text-[16px]'>Full name</p>
+                <p className='font-normal text-[16px] font-montserrat'>Full name</p>
                 <input type='text' placeholder='Akinrinde Joel' className=' w-full xl:w-[546px] h-[72px] bg-[#D9D9D9] outline-none  rounded-[10px] px-4 '/>
             </lable>
 
             <lable className='flex flex-col gap-4 justify-center items-start '>
-                <p className='font-normal text-[16px]'>Email address</p>
+                <p className='font-normal text-[16px] font-montserrat'>Email address</p>
                 <input type='email' placeholder='example123@gmaiol.com' className='w-full xl:w-[546px] h-[72px] bg-[#D9D9D9] outline-none  rounded-[10px] px-4 '/>
             </lable>
 
             <lable className='flex flex-col gap-4 justify-center items-start '>
-                <p className='font-normal text-[16px]'>Message</p>
+                <p className='font-normal text-[16px] font-montserrat'>Message</p>
                 <textarea type='text' placeholder='Enter Your Message' className='w-full xl:w-[546px] h-[172px] bg-[#D9D9D9] outline-none  rounded-[10px] px-4 '/>
             </lable>
 
-            <button className='w-full xl:w-[546px] h-[72px] bg-[#4B0082] outline-none text-white  rounded-[10px] px-4 '>
+            <button className='w-full xl:w-[546px] h-[72px] bg-[#4B0082] outline-none text-white font-montserrat  rounded-[10px] px-4 '>
                 Submit
             </button>
         </form>

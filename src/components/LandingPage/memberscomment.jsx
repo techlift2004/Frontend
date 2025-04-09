@@ -49,8 +49,8 @@ const Memberscomment = () => {
   return (
     <div className="flex flex-col justify-center items-center py-10 px-8 md:px-20">
       <div className="text-center mb-6">
-        <h2 className="text-[24px] font-bold">Community Members Review</h2>
-        <p className="font-normal text-[20px]">
+        <h2 className="text-[24px] font-poppins font-bold">Community Members Review</h2>
+        <p className="font-normal font-poppins text-[20px]">
           Here are a few success stories from our community members whose lives we have impacted
         </p>
       </div>
@@ -93,9 +93,9 @@ const AnimatedCard = ({ item, index }) => {
     >
       <div className="flex items-center gap-2">
         <img src={item.image} alt={item.name} className="w-16 h-16 rounded-full" />
-        <p className="font-bold text-white text-[20px]">{item.name}</p>
+        <p className="font-bold font-poppins text-white text-[20px]">{item.name}</p>
       </div>
-      <p className="text-[16px] text-white text-center">{item.comment}</p>
+      <p className="text-[16px] font-montserrat text-white text-center">{item.comment}</p>
     </motion.div>
   );
 };
