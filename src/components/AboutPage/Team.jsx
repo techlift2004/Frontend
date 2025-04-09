@@ -53,9 +53,9 @@ const Team = () => {
                                     <div className='bg-[#4B0082] w-full h-8'></div>
                                     <div className='p-7'>
                                         <img src={item.teamImg} alt="techlift-agent" className='mx-auto'/>
-                                        <h1 className='mt-5 font-bold text-[24px] text-center'>{item.teamTitle}</h1>
-                                        <h2 className='mt-5 font-bold text-[24px] text-center'>{item.teamRole}</h2>
-                                        <p className='max-w-[40rem] mt-5'>
+                                        <h1 className='mt-5 font-bold text-[24px] text-center font-poppins'>{item.teamTitle}</h1>
+                                        <h2 className='mt-5 font-bold text-[24px] text-center font-poppins'>{item.teamRole}</h2>
+                                        <p className='max-w-[40rem] font-montserrat text-center mt-5'>
                                             {item.teamBio}
                                         </p>
                                     </div>

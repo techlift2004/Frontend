@@ -45,8 +45,8 @@ export default function Faq() {
     <div className="flex flex-col justify-center items-center py-10 gap-5 px-8 md:px-20">
       {/* Header Section */}
       <div className="flex flex-col justify-center items-center gap-4">
-        <h1 className="text-[24px] font-bold text-center">Frequently Asked Questions</h1>
-        <p className="text-[16px] font-normal text-center">
+        <h1 className="text-[24px] font-bold text-center font-poppins">Frequently Asked Questions</h1>
+        <p className="text-[16px] font-normal text-center font-poppins">
           Want to know more about us? Here are a few questions and answers to help you.
         </p>
       </div>
@@ -78,7 +78,7 @@ function FaqItem({ question, answer, index }) {
     >
       {/* Question */}
       <div
-        className="h-[80px] flex items-center justify-between px-10 font-bold md:text-[20px]"
+        className="h-[80px] flex items-center justify-between px-10 font-poppins font-bold md:text-[20px]"
         onClick={() => setIsOpen(!isOpen)}
       >
         <p>{question}</p>
@@ -95,7 +95,7 @@ function FaqItem({ question, answer, index }) {
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
         transition={{ duration: 0.3 }}
-        className="overflow-hidden px-10 pb-4 text-[16px] text-gray-600"
+        className="overflow-hidden px-10 pb-4 text-[16px] font-montserrat text-gray-600"
       >
         {answer}
       </motion.div>

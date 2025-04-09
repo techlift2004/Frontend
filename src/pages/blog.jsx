@@ -54,8 +54,14 @@ export default function Blog() {
   return (
     <div>
       <Nav />
+       <div className="bg-[#4B0082] pt-36 pb-28">
+                      <h1 className="text-center font-extrabold text-white text-5xl font-poppins">Latest Posts</h1>
+                      <p className="text-center text-[1.3rem] text-white px-20 mt-8 font-poppins">
+                      No matter where you are in your tech journey, our informative blogs are here to provide the knowledge and support you need to succeed.
+                      </p>
+                  </div>
       <main className="container mx-auto min-h-screen pt-20 max-w-7xl p-8">
-        <h1 className="text-4xl font-bold mb-8 text-center">Latest Posts</h1>
+
 
         {error && <p className="text-red-500 text-center">{error}</p>}
 
@@ -114,13 +120,13 @@ const imageUrl = post.mainImage?.asset?._id
           <span className="flex gap-1 items-center">
             <SlEvent /> {post.category}
           </span>
-          <span className="flex gap-1 items-center">
+          <span className="flex gap-1 font-montserrat items-center">
             <PiClock />{new Date(post.publishedAt).toLocaleDateString()}
           </span>
         </div>
-        <h3 className="text-lg font-bold text-[24px]">{post.title}</h3>
+        <h3 className="text-lg font-bold font-poppins text-[24px]">{post.title}</h3>
         <Link to={`/post/${post.slug.current}`}>
-          <button className="mt-4 w-[100px] h-[40px] bg-[#4B0082] text-white rounded-lg text-[16px] font-normal">
+          <button className="mt-4 w-[100px] h-[40px] bg-[#4B0082] font-montserrat text-white rounded-lg text-[16px] font-normal">
             Read more
           </button>
         </Link>

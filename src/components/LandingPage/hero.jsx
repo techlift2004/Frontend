@@ -19,13 +19,13 @@ export default function Hero() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="bg-[#F5F5F5] flex flex-col justify-center gap-4 items-center xl:items-start"
       >
-        <h1 className="md:text-[40px] text-[32px] text-[#000000] font-bold md:w-[500px] text-center xl:text-start">
+        <h1 className="md:text-[40px] text-[32px] font-poppins text-[#000000] font-bold md:w-[500px] text-center xl:text-start">
           Building a brighter Tech future together
         </h1>
-        <p className="md:text-[26px] text-[20px] text-[#000000] font-normal md:w-[422px] text-center xl:text-start">
+        <p className="md:text-[26px] text-[20px] text-[#000000] font-montserrat font-normal md:w-[500px] text-center xl:text-start">
           From Passion to Progress: Uplifting Talent Through Tech, Nurturing Innovation, and Creating Limitless Opportunities for a Brighter Future
         </p>
-        <button onClick={handleClick} className="bg-[#4B0082] text-[#FFFFFF] w-[201px] h-[64px] rounded-[8px] cursor-pointer">
+        <button onClick={handleClick} className="bg-[#4B0082] text-[#FFFFFF] font-poppins w-[201px] h-[64px] rounded-[8px] cursor-pointer">
           Join our community
         </button>
       </motion.div>

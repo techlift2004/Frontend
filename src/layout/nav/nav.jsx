@@ -23,7 +23,7 @@ export default function Nav({setOpenAccess}) {
     >
       <img src={Logo} alt="logo" className="w-[90px] h-[90px]" />
 
-      <ul className="hidden md:flex space-x-6 text-black text-[16px] font-normal">
+      <ul className="hidden md:flex space-x-6 text-black text-[16px] font-montserrat font-normal">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -87,7 +87,7 @@ export default function Nav({setOpenAccess}) {
           </button>
         </div>
 
-        <ul className="flex flex-col space-y-4 text-black text-[16px] font-normal py-8 pl-8">
+        <ul className="flex flex-col space-y-4 text-black text-[16px] font-montserrat font-normal py-8 pl-8">
           <NavLink className="cursor-pointer">Home</NavLink>
           <NavLink className="cursor-pointer">About Us</NavLink>
           <NavLink className="cursor-pointer">Blog</NavLink>
@@ -98,12 +98,12 @@ export default function Nav({setOpenAccess}) {
       </div>
 
       <div className="flex justify-between items-center gap-5">
-        <button className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer hidden md:block">
+        <button className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer hidden font-poppins md:block">
           Sponsor Us
         </button>
-        <button onClick={()=>setOpenAccess(true)} className="lg:flex justify-center items-center m-auto hover:bg-[rgb(75,0,130)] h-[44px] w-[128px] text-[16px] font-normal hover:text-[#FFFFFF] border-2 border-[rgb(75,0,130)] text-[rgb(75,0,130)] rounded-[8px] cursor-pointer hidden md:block">
+        {/* <button onClick={()=>setOpenAccess(true)} className="lg:flex justify-center items-center m-auto hover:bg-[rgb(75,0,130)] h-[44px] w-[128px] text-[16px] font-normal hover:text-[#FFFFFF] border-2 border-[rgb(75,0,130)] text-[rgb(75,0,130)] rounded-[8px] cursor-pointer hidden md:block">
           Admin
-        </button>
+        </button> */}
       </div>
     </motion.div>
   );

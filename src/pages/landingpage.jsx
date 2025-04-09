@@ -5,7 +5,7 @@ import Feature from '../components/LandingPage/feature'
 import About from '../components/LandingPage/about'
 import Upcoming from '../components/LandingPage/upcoming'
 import Memberscomment from '../components/LandingPage/memberscomment'
-// import Blog from '../components/LandingPage/blog'
+import Jpoin from '../components/LandingPage/jpoin'
 import Faq from '../components/LandingPage/faq'
 import Footer from '../layout/footer/footer'
 import AdminAccess from '../components/Admin/AdminAccess'
@@ -21,7 +21,7 @@ export default function Landing() {
       <About />
       <Upcoming />
       <Memberscomment />
-      {/* <Blog /> */}
+      <Jpoin  />
       <Faq />
       <Footer />
       <AdminAccess openAccess={openAccess} setOpenAccess={setOpenAccess} />

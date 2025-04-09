@@ -4,13 +4,14 @@ import Nav from '../layout/nav/nav'
 import heroimg from '../assets/image-removebg-preview - 2025-02-24T133112.391 1.svg'
 import { motion } from "framer-motion";
 import Footer from '../layout/footer/footer'
+import Join from '../components/LandingPage/jpoin'
 
 export default function contact() {
   return (
     <div>
         <Nav />
      
-        <div className="grid grid-cols-1 flex lg:grid-cols-2 place-items-center h-[500px] overflow-hidden bg-[#4B0082] px-5 md:px-20 xl:pt-20 pt-36">
+        <div className="grid grid-cols-1  lg:grid-cols-2 place-items-center h-[500px] overflow-hidden bg-[#4B0082] px-5 md:px-20 xl:pt-20 pt-36">
        
       <motion.div
         initial={{ x: -100, opacity: 0 }}
@@ -18,10 +19,10 @@ export default function contact() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className=" flex flex-col justify-center gap-4 items-center xl:items-start lg:mt-[-200px] xl:pb-0"
       >
-        <h1 className="md:text-[40px] text-[32px] text-[#ffffff] font-bold md:w-[500px] text-center xl:text-start">
+        <h1 className="md:text-[40px] text-[32px] text-[#ffffff] font-poppins font-bold md:w-[500px] text-center xl:text-start">
         Get In Touch
         </h1>
-        <p className="md:text-[26px] text-[20px] text-[#ffffff] font-normal md:w-[422px] text-center xl:text-start">
+        <p className="md:text-[26px] text-[20px] font-poppins text-[#ffffff] font-normal md:w-[422px] text-center xl:text-start">
         Got any questions or concerns?
         </p>
       </motion.div>
@@ -44,6 +45,7 @@ export default function contact() {
       
     </div>
         <Contact />
+        <Join />
         <Footer />
       
     </div>

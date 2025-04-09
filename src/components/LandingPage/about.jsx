@@ -14,8 +14,8 @@ export default function About() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="flex flex-col justify-center items-center py-10 gap-5 px-8 md:px-20"
     >
-      <h1 className="font-bold text-[24px]">About Us</h1>
-      <p className="text-center md:w-[765px] font-normal">
+      <h1 className="font-bold text-[24px] font-poppins">About Us</h1>
+      <p className="text-center md:w-[765px] font-poppins font-normal">
         We are a team of techies ensuring that the next generation of techies have access to the right resources and community. 
         We share knowledge and empower growth through discussions, resources, and networking.
       </p>
@@ -36,8 +36,8 @@ export default function About() {
             animate={isInView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
           >
-            <h1 className="font-bold text-[24px] text-center md:text-start">Our Vision</h1>
-            <p className="font-normal text-center xl:w-[465px] md:text-start">
+            <h1 className="font-bold text-[24px] text-center md:text-start font-poppins">Our Vision</h1>
+            <p className="font-normal text-center xl:w-[465px] font-poppins md:text-start">
               To be a leading community that bridges the gap for upcoming techies, inspiring a new generation of skilled and confident 
               technology professionals equipped to transform the future.
             </p>
@@ -48,8 +48,8 @@ export default function About() {
             animate={isInView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
           >
-            <h1 className="font-bold text-[24px] text-center md:text-start">Our Mission</h1>
-            <p className="font-normal text-center xl:w-[465px] md:text-start">
+            <h1 className="font-bold text-[24px] text-center md:text-start font-poppins">Our Mission</h1>
+            <p className="font-normal text-center xl:w-[465px] font-poppins md:text-start">
               To empower aspiring tech enthusiasts by providing access to comprehensive resources, courses, workshops, and soft skills training. 
               Fostering growth, collaboration, and innovation in technology.
             </p>
