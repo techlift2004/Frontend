@@ -1,46 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import { MdGroups, MdEvent } from 'react-icons/md';
 import { useGlobalContext } from './AdminController'
-import { fetchUsers, deleteUserFromFirestore, deleteAllUsersFromFirestore } from '../../Firebase';
+import { fetchUsers, fetchEvents, deleteUserFromFirestore, deleteAllUsersFromFirestore } from '../../Firebase';
 
 const AdminDashboard = ({ padd }) => {
-    const {openDashboard } = useGlobalContext()
+    const { openDashboard } = useGlobalContext();
     const [users, setUsers] = useState([]);
-    const [showModal, setShowModal] = useState(false); // State for the delete confirmation modal
-    const [userToDelete, setUserToDelete] = useState(null); // State to hold the user ID to be deleted
+    const [events, setEvents] = useState([]); // State for events
+    const [showModal, setShowModal] = useState(false);
+    const [userToDelete, setUserToDelete] = useState(null);
 
+    // Fetch users and events on component mount
     useEffect(() => {
         const getUsers = async () => {
             const usersData = await fetchUsers();
             setUsers(usersData);
         };
+
+        const getEvents = async () => {
+            const eventsData = await fetchEvents();
+            setEvents(eventsData); // Set events in state
+        };
+
         getUsers();
-    }, [users]);
+        getEvents(); // Fetch events as well
+    }, [events, users]);
 
     const handleDeleteUser = (userId) => {
-        setUserToDelete(userId); // Store the user ID to be deleted
-        setShowModal(true); // Show the confirmation modal
+        setUserToDelete(userId);
+        setShowModal(true);
     };
 
     const handleDeleteAllUsers = () => {
-        setShowModal(true); // Show the confirmation modal for deleting all users
-        setUserToDelete('all'); // Use 'all' to indicate deleting all users
+        setShowModal(true);
+        setUserToDelete('all');
     };
 
     const confirmDelete = async () => {
         if (userToDelete === 'all') {
             await deleteAllUsersFromFirestore();
-            setUsers([]); // Clear all users from state
+            setUsers([]);
         } else {
             await deleteUserFromFirestore(userToDelete);
-            setUsers(users.filter(user => user.id !== userToDelete)); // Remove the deleted user from state
+            setUsers(users.filter(user => user.id !== userToDelete));
         }
-        setShowModal(false); // Close the modal after deletion
+        setShowModal(false);
     };
 
     const cancelDelete = () => {
-        setShowModal(false); // Close the modal without deleting anything
-        setUserToDelete(null); // Reset the user to delete
+        setShowModal(false);
+        setUserToDelete(null);
     };
 
     return (
@@ -61,7 +70,7 @@ const AdminDashboard = ({ padd }) => {
                         <div className='bg-[rgba(75,0,130,0.15)] rounded p-2'>
                             <MdEvent size={24} className='text-[#4B0082]' />
                         </div>
-                        <p className='text-3xl font-bold text-right'>{users.length}</p>
+                        <p className='text-3xl font-bold text-right'>{events.length}</p>
                     </div>
                     <p className='text-gray-700 font-medium'>Total Events</p>
                 </div>
@@ -102,14 +111,14 @@ const AdminDashboard = ({ padd }) => {
                                 <p>{user.number}</p>
                                 <button
                                     onClick={() => handleDeleteUser(user.id)}
-                                    className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer"
+                                    className="hover:text-[#FFFFFF] border-2 border-[rgb(75,0,130)] text-[rgb(75,0,130)] h-[44px] w-[128px] text-[16px] font-normal hover:bg-[rgb(75,0,130)] rounded-[8px] cursor-pointer"
                                 >
                                     Delete
                                 </button>
                             </div>
                         ))
                     ) : (
-                        <div className='p-4 bg-white text-center'>
+                        <div className='p-4 text-gray-600 italic text-center'>
                             <p>No users found</p>
                         </div>
                     )}
@@ -118,7 +127,7 @@ const AdminDashboard = ({ padd }) => {
 
             {/* Confirmation Modal */}
             {showModal && (
-                <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
+                <div className='fixed inset-0 flex items-center justify-center bg-[rgba(0,0,0,0.85)]'>
                     <div className='bg-white p-6 rounded-[8px] w-1/3'>
                         <h3 className='text-[18px] font-bold mb-4'>Are you sure you want to delete this user?</h3>
                         <div className='flex justify-between'>

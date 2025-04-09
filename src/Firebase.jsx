@@ -6,7 +6,9 @@ import {
     deleteDoc,
     collection,
     getDocs,
-    addDoc
+    addDoc,
+    query, 
+    where
 } from "firebase/firestore";
 
 // Firebase config for users app
@@ -32,9 +34,9 @@ const auth = getAuth(app);
 const signup = async (name, email, number) => {
     try {
         const docRef = await addDoc(collection(db, "users"), {
-        name,
-        email,
-        number
+            name,
+            email,
+            number
         });
         console.log("User added with ID:", docRef.id);
     } catch (error) {
@@ -53,12 +55,33 @@ const fetchUsers = async () => {
         }));
 
         users.forEach(user => {
-        console.log(user.id, " => ", user);
+            console.log(user.id, " => ", user);
         });
 
         return users;
     } catch (error) {
         console.error("Error fetching users:", error);
+        return [];
+    }
+};
+
+// Fetch all events
+const fetchEvents = async () => {
+    const eventsRef = collection(db, "events");
+    try {
+        const snapshot = await getDocs(eventsRef);
+        const events = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+
+        events.forEach(event => {
+            console.log(event.id, " => ", event);
+        });
+
+        return events;
+    } catch (error) {
+        console.error("Error fetching events:", error);
         return [];
     }
 };
@@ -127,6 +150,28 @@ const storeEventData = async (eventData) => {
     }
 };
 
+const checkDuplicate = async (email, phone) => {
+    try {
+        // Create queries using the modular SDK methods
+        const emailQuery = query(collection(db, 'users'), where('email', '==', email));
+        const phoneQuery = query(collection(db, 'users'), where('phone', '==', phone));
+        
+        // Fetch the documents matching the query
+        const emailSnapshot = await getDocs(emailQuery);
+        const phoneSnapshot = await getDocs(phoneQuery);
+        
+        if (!emailSnapshot.empty || !phoneSnapshot.empty) {
+            return true; // Duplicate found
+        }
+        
+        return false; // No duplicates
+    } catch (error) {
+        console.error('Error checking duplicates:', error);
+        return false; // In case of error, assume no duplicates
+    }
+};
+
+
 // -------------------- EXPORTS --------------------
 export {
     db,
@@ -135,5 +180,8 @@ export {
     fetchUsers,
     deleteUserFromFirestore,
     deleteAllUsersFromFirestore,
-    storeEventData
+    storeEventData,
+    checkDuplicate,
+    fetchEvents,
+
 };

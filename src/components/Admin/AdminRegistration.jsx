@@ -97,15 +97,15 @@ const AdminRegistration = ({ padd }) => {
                             <p>{user.number}</p>
                             <button
                             onClick={() => handleDeleteUser(user.id)}
-                            className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer"
+                            className="hover:bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal hover:text-[#FFFFFF] border-2 border-[rgb(75,0,130)] text-[rgb(75,0,130)] rounded-[8px] cursor-pointer"
                             >
                             Delete
                             </button>
                         </div>
                         ))
                     ) : (
-                        <div className='p-4 bg-white text-center'>
-                        <p>No users found</p>
+                        <div className='p-4 text-gray-600 italic text-center'>
+                            <p>No users found</p>
                         </div>
                     )}
                 </div>
@@ -124,7 +124,7 @@ const AdminRegistration = ({ padd }) => {
             
             {/* Confirmation Modal for deleting individual user */}
             {showModal && (
-            <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
+            <div className='fixed inset-0 flex items-center justify-center bg-[rgba(0,0,0,0.85)]'>
                 <div className='bg-white p-6 rounded-[8px] w-1/3'>
                 <h3 className='text-[18px] font-bold mb-4'>Are you sure you want to delete this user?</h3>
                 <div className='flex justify-between'>
@@ -147,7 +147,7 @@ const AdminRegistration = ({ padd }) => {
 
             {/* Confirmation Modal for deleting all users */}
             {showDeleteAllModal && (
-            <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
+            <div className='fixed inset-0 flex items-center justify-center bg-[rgba(0,0,0,0.85)]'>
                 <div className='bg-white p-6 rounded-[8px] w-1/3'>
                 <h3 className='text-[18px] font-bold mb-4'>Are you sure you want to delete all users?</h3>
                 <div className='flex justify-between'>
