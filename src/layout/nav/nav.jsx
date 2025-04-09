@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Logo from "../../assets/tech lift copy 4 1.svg";
 import { NavLink } from "react-router-dom";
 
-export default function Nav({setOpenAccess}) {
+function Nav({setOpenAccess}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -110,6 +110,7 @@ export default function Nav({setOpenAccess}) {
 }
 
 
+export default Nav
 
 
 
