@@ -80,7 +80,7 @@ const AdminEvents = ({ padd }) => {
     return (
         openEvents && (
             <div className={`pt-[6rem] pr-[1rem] ${padd ? 'pl-[17rem]' : 'pl-[5rem]'}`}>
-                <h1>Admin Events</h1>
+                <h1 className='text-[36px] font-bold mb-8'>Admin Events</h1>
                 <form onSubmit={handleSubmit} className="mt-4">
                     <div className="mb-4">
                         <label htmlFor="eventTitle" className="block">Event Title</label>
@@ -143,7 +143,7 @@ const AdminEvents = ({ padd }) => {
                     </div>
                     <button
                         type="submit"
-                        className="bg-blue-500 text-white px-6 py-2 rounded mt-4"
+                        className="bg-[#4B0082] text-white px-6 py-2 rounded mt-4"
                     >
                         Save Event
                     </button>

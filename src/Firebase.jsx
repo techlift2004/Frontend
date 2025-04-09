@@ -1,6 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore, doc, deleteDoc, collection, getDocs, addDoc } from "firebase/firestore";
+import {
+    getFirestore,
+    doc,
+    deleteDoc,
+    collection,
+    getDocs,
+    addDoc
+} from "firebase/firestore";
 
 // Firebase config for users app
 const firebaseConfig = {
@@ -19,19 +26,19 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-// Functions to interact with Firestore
+// ------------------- FIRESTORE FUNCTIONS --------------------
 
 // Signup function
 const signup = async (name, email, number) => {
     try {
         const docRef = await addDoc(collection(db, "users"), {
-            name,
-            email,
-            number
+        name,
+        email,
+        number
         });
-        console.log("Document written with ID:", docRef.id);
+        console.log("User added with ID:", docRef.id);
     } catch (error) {
-        console.error("Error adding document:", error);
+        console.error("Error adding user:", error);
     }
 };
 
@@ -46,7 +53,7 @@ const fetchUsers = async () => {
         }));
 
         users.forEach(user => {
-            console.log(user.id, " => ", user);
+        console.log(user.id, " => ", user);
         });
 
         return users;
@@ -61,8 +68,9 @@ const deleteUserFromFirestore = async (userId) => {
     try {
         const userRef = doc(db, "users", userId);
         await deleteDoc(userRef);
+        console.log("User deleted:", userId);
     } catch (error) {
-        console.error("Error deleting user from Firestore:", error);
+        console.error("Error deleting user:", error);
     }
 };
 
@@ -72,10 +80,11 @@ const deleteAllUsersFromFirestore = async () => {
         const usersRef = collection(db, "users");
         const snapshot = await getDocs(usersRef);
         snapshot.forEach(async (doc) => {
-            await deleteDoc(doc.ref);
+        await deleteDoc(doc.ref);
         });
+        console.log("All users deleted");
     } catch (error) {
-        console.error("Error deleting all users from Firestore:", error);
+        console.error("Error deleting all users:", error);
     }
 };
 
@@ -84,26 +93,47 @@ const storeEventData = async (eventData) => {
     console.log("Submitting event data:", eventData);
 
     try {
-        const eventTime = new Date(eventData.eventTime);
-        console.log("Parsed eventTime:", eventTime);
+        const parsedTime = new Date(eventData.eventTime);
+        console.log("Parsed eventTime:", parsedTime);
 
-        if (isNaN(eventTime)) {
-            console.error("Invalid date:", eventData.eventTime);
+        if (isNaN(parsedTime)) {
+            console.error("Invalid event date:", eventData.eventTime);
             return;
         }
 
-        const docRef = await addDoc(collection(db, "events"), {
-            eventTitle: eventData.eventTitle,
-            eventTime: eventTime.toISOString(),
-            eventPlace: eventData.eventPlace,
-            eventContent: eventData.eventContent,
-            eventImage: eventData.eventImage,
+        const formattedTime = parsedTime.toLocaleString("en-NG", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+            timeZone: "Africa/Lagos",
+            timeZoneName: "short"
         });
 
-        console.log("Successfully stored with ID:", docRef.id);
+        const docRef = await addDoc(collection(db, "events"), {
+            eventTitle: eventData.eventTitle,
+            eventTime: formattedTime,
+            eventPlace: eventData.eventPlace,
+            eventContent: eventData.eventContent,
+            eventImage: eventData.eventImage
+        });
+
+        console.log("Event stored with ID:", docRef.id);
     } catch (error) {
-        console.error("Failed to store event:", error);
+        console.error("Error storing event:", error);
     }
 };
 
-export { db, auth, signup, fetchUsers, deleteUserFromFirestore, deleteAllUsersFromFirestore, storeEventData };
+// -------------------- EXPORTS --------------------
+export {
+    db,
+    auth,
+    signup,
+    fetchUsers,
+    deleteUserFromFirestore,
+    deleteAllUsersFromFirestore,
+    storeEventData
+};

@@ -15,7 +15,7 @@ const AdminDashboard = ({ padd }) => {
             setUsers(usersData);
         };
         getUsers();
-    }, []);
+    }, [users]);
 
     const handleDeleteUser = (userId) => {
         setUserToDelete(userId); // Store the user ID to be deleted
