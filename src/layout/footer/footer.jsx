@@ -10,11 +10,11 @@ import { Link } from "react-router-dom"
 
 export default function footer() {
   return (
-    <div className='flex flex-col justify-center items-center px-10 md:px-20px bg-[#4B0082] py-20'>
+    <div className='flex flex-col justify-center items-center px-10 md:px-20px bg-[#4B0082] pt-20'>
 
       <div className='py-4 flex flex-col gap-10 md:flex-row justify-center items-center md:items-start xl:gap-36 overflow-hidden'>
         <div className='flex flex-col justify-center items-center md:items-start gap-4'>
-          <h1 className='text-[24px] font-bold text-start text-white font-poppins '>TechLift</h1>
+          <h1  className='text-[24px] font-bold text-start text-white font-poppins '>TechLift</h1>
           <p className='text-[16px] font-normal text-center md:text-start text-white w-[240px] font-montserrat '>Welcome to TechLift, a place where we build brighter tech future together</p>
         </div>
 
