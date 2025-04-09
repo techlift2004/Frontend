@@ -143,7 +143,7 @@ const AdminEvents = ({ padd }) => {
                     </div>
                     <button
                         type="submit"
-                        className="bg-[#4B0082] text-white px-6 py-2 rounded mt-4"
+                        className="hover:text-[#FFFFFF] border-2 border-[rgb(75,0,130)] text-[rgb(75,0,130)] hover:bg-[rgb(75,0,130)] px-6 py-2 rounded mt-4"
                     >
                         Save Event
                     </button>

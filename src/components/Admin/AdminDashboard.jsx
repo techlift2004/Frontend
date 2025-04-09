@@ -70,12 +70,16 @@ const AdminDashboard = ({ padd }) => {
             <div className='shadow-lg rounded-[8px] my-10'>
                 <div className='flex justify-between items-center p-4 rounded-t-[8px]'>
                     <h2 className='text-[24px] font-bold mb-4'>Recent Registrations</h2>
-                    <button
-                        onClick={handleDeleteAllUsers}
-                        className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer"
-                    >
-                        Delete All
-                    </button>
+                    {users.length > 0 && (
+                        <div className='flex justify-end p-4'>
+                            <button
+                                onClick={handleDeleteAllUsers}
+                                className="bg-red-500 text-white py-2 px-4 rounded-[8px]"
+                            >
+                                Delete All Users
+                            </button>
+                        </div>
+                    )}
                 </div>
                 <div className='py-10'>
                     <div className='grid grid-cols-4 place-items-center w-full gap-4 p-4 bg-white rounded-b-[8px]'>

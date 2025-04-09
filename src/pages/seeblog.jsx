@@ -49,7 +49,7 @@ const PostPage = () => {
   return (
     <div>
       <Nav />
-    <main className="container place-items-center mx-auto min-h-screen max-w-3xl p-8 pt-20 px-20 flex flex-col gap-4">
+    <main className="container place-items-center mx-auto min-h-screen  p-8 pt-20 px-[20px] md:px-20 flex flex-col gap-4">
       <Link to="/blog" className="hover:underline">
         ← Back to posts
       </Link>
@@ -60,7 +60,7 @@ const PostPage = () => {
           alt={post.title}
           className="aspect-video rounded-xl place-items-center"
           width="100%"
-          height="310"
+          height="100%"
         />
       )}
        <h1 className="text-4xl text-center font-bold font-poppins mb-8">{post.title}</h1>
