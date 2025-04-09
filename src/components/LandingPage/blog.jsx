@@ -46,7 +46,7 @@ const blogData = [
 
 const Blog = () => {
   return (
-    <div className="flex justify-center items-center py-14 px-6 md:px-40">
+    <div className="flex justify-center items-center py-14 px-6 md:px-40 overflow-hidden ">
       <Swiper
         slidesPerView={3}
         spaceBetween={20}
@@ -57,7 +57,7 @@ const Blog = () => {
           768: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        className="w-full max-w-7xl"
+        className="w-full max-w-6xl overflow-hidden"
       >
         {blogData.map((item, index) => (
           <SwiperSlide key={index}>
