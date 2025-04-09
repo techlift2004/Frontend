@@ -79,7 +79,7 @@ export default function Nav({setOpenAccess}) {
       <div
         className={`fixed top-0 left-0 w-64 h-full bg-white transform md:hidden ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-500 ease-in-out z-20 shadow-lg`}
+        } transition-transform duration-500 ease-in-out  shadow-lg`}
       >
         <div className="flex justify-end p-4">
           <button onClick={closeMenu} className="text-black text-2xl font-bold">
@@ -87,24 +87,23 @@ export default function Nav({setOpenAccess}) {
           </button>
         </div>
 
-        <ul className="flex flex-col space-y-4 text-black text-[16px] font-montserrat font-normal py-8 pl-8">
-          <NavLink className="cursor-pointer">Home</NavLink>
-          <NavLink className="cursor-pointer">About Us</NavLink>
-          <NavLink className="cursor-pointer">Blog</NavLink>
-          <NavLink className="cursor-pointer">FAQs</NavLink>
-          <NavLink className="cursor-pointer">Contact Us</NavLink>
-          <NavLink className="cursor-pointer md:hidden">Sponsor Us</NavLink>
+        <ul className="flex flex-col space-y-4 z-100 text-black text-[16px] font-montserrat font-normal py-8 pl-8">
+          <NavLink to='/' className="cursor-pointer">Home</NavLink>
+          <NavLink to='/about' className="cursor-pointer">About Us</NavLink>
+          <NavLink to='/blog' className="cursor-pointer">Blog</NavLink>
+          <NavLink to='/contact' className="cursor-pointer">Contact Us</NavLink>
+          <NavLink to='' className="cursor-pointer md:hidden">Sponsor Us</NavLink>
         </ul>
       </div>
 
-      <div className="flex justify-between items-center gap-5">
+     
         <button className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer hidden font-poppins md:block">
           Sponsor Us
         </button>
         {/* <button onClick={()=>setOpenAccess(true)} className="lg:flex justify-center items-center m-auto hover:bg-[rgb(75,0,130)] h-[44px] w-[128px] text-[16px] font-normal hover:text-[#FFFFFF] border-2 border-[rgb(75,0,130)] text-[rgb(75,0,130)] rounded-[8px] cursor-pointer hidden md:block">
           Admin
         </button> */}
-      </div>
+    
     </motion.div>
   );
 }
