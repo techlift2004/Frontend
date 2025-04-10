@@ -23,14 +23,11 @@ const firebaseConfig = {
 
 // Initialize Firebase app
 const app = initializeApp(firebaseConfig);
-
-// Initialize Firestore and Auth
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-// ------------------- FIRESTORE FUNCTIONS --------------------
+// ------------------- USER FUNCTIONS --------------------
 
-// Signup function
 const signup = async (name, email, number) => {
     try {
         const docRef = await addDoc(collection(db, "users"), {
@@ -44,20 +41,85 @@ const signup = async (name, email, number) => {
     }
 };
 
-// Fetch all users
-const fetchUsers = async () => {
-    const usersRef = collection(db, "users");
+const checkDuplicate = async (email, phone) => {
     try {
-        const snapshot = await getDocs(usersRef);
+        const emailQuery = query(collection(db, 'users'), where('email', '==', email));
+        const phoneQuery = query(collection(db, 'users'), where('phone', '==', phone));
+        const emailSnapshot = await getDocs(emailQuery);
+        const phoneSnapshot = await getDocs(phoneQuery);
+        return !emailSnapshot.empty || !phoneSnapshot.empty;
+    } catch (error) {
+        console.error('Error checking duplicates:', error);
+        return false;
+    }
+};
+
+// ------------------- JOIN US FUNCTIONS --------------------
+
+
+const checkDuplicateJoinUs = async (email, number) => {
+    try {
+        const emailQuery = query(collection(db, "joinUs"), where("email", "==", email));
+        const phoneQuery = query(collection(db, "joinUs"), where("phone", "==", number));
+        const emailSnapshot = await getDocs(emailQuery);
+        const phoneSnapshot = await getDocs(phoneQuery);
+        return !emailSnapshot.empty || !phoneSnapshot.empty;
+    } catch (error) {
+        console.error("Error checking duplicates in joinUs:", error);
+        return false;
+    }
+};
+
+const deleteJoinUsMember = async (joinUsId) => {
+    try {
+        await deleteDoc(doc(db, "joinUs", joinUsId));
+        console.log("Member deleted from joinUs:", joinUsId);
+    } catch (error) {
+        console.error("Error deleting member from joinUs:", error);
+    }
+};
+
+
+const signupForJoinUs = async (name, email, number, stack, gender) => {
+    try {
+        const docRef = await addDoc(collection(db, "joinUs"), {
+            name,
+            email,
+            phone: number,
+            stack,
+            gender,
+            createdAt: new Date(),
+    });
+        console.log("User joined:", docRef.id);
+    } catch (err) {
+        console.error("Signup error:", err);
+        throw err;
+    }
+};
+
+const fetchJoinUsData = async () => {
+    try {
+        const snapshot = await getDocs(collection(db, "joinUs"));
+        const entries = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+        return entries;
+    } catch (error) {
+        console.error("Error fetching joinUs data:", error);
+        return [];
+    }
+};
+
+// ------------------- OTHER FIRESTORE FUNCTIONS --------------------
+
+const fetchUsers = async () => {
+    try {
+        const snapshot = await getDocs(collection(db, "users"));
         const users = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }));
-
-        users.forEach(user => {
-            console.log(user.id, " => ", user);
-        });
-
         return users;
     } catch (error) {
         console.error("Error fetching users:", error);
@@ -65,20 +127,13 @@ const fetchUsers = async () => {
     }
 };
 
-// Fetch all events
 const fetchEvents = async () => {
-    const eventsRef = collection(db, "events");
     try {
-        const snapshot = await getDocs(eventsRef);
+        const snapshot = await getDocs(collection(db, "events"));
         const events = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }));
-
-        events.forEach(event => {
-            console.log(event.id, " => ", event);
-        });
-
         return events;
     } catch (error) {
         console.error("Error fetching events:", error);
@@ -86,24 +141,20 @@ const fetchEvents = async () => {
     }
 };
 
-// Delete a single user
 const deleteUserFromFirestore = async (userId) => {
     try {
-        const userRef = doc(db, "users", userId);
-        await deleteDoc(userRef);
+        await deleteDoc(doc(db, "users", userId));
         console.log("User deleted:", userId);
     } catch (error) {
         console.error("Error deleting user:", error);
     }
 };
 
-// Delete all users
 const deleteAllUsersFromFirestore = async () => {
     try {
-        const usersRef = collection(db, "users");
-        const snapshot = await getDocs(usersRef);
+        const snapshot = await getDocs(collection(db, "users"));
         snapshot.forEach(async (doc) => {
-        await deleteDoc(doc.ref);
+            await deleteDoc(doc.ref);
         });
         console.log("All users deleted");
     } catch (error) {
@@ -111,19 +162,13 @@ const deleteAllUsersFromFirestore = async () => {
     }
 };
 
-// Store event data
 const storeEventData = async (eventData) => {
-    console.log("Submitting event data:", eventData);
-
     try {
         const parsedTime = new Date(eventData.eventTime);
-        console.log("Parsed eventTime:", parsedTime);
-
         if (isNaN(parsedTime)) {
             console.error("Invalid event date:", eventData.eventTime);
             return;
         }
-
         const formattedTime = parsedTime.toLocaleString("en-NG", {
             weekday: "long",
             year: "numeric",
@@ -150,38 +195,26 @@ const storeEventData = async (eventData) => {
     }
 };
 
-const checkDuplicate = async (email, phone) => {
-    try {
-        // Create queries using the modular SDK methods
-        const emailQuery = query(collection(db, 'users'), where('email', '==', email));
-        const phoneQuery = query(collection(db, 'users'), where('phone', '==', phone));
-        
-        // Fetch the documents matching the query
-        const emailSnapshot = await getDocs(emailQuery);
-        const phoneSnapshot = await getDocs(phoneQuery);
-        
-        if (!emailSnapshot.empty || !phoneSnapshot.empty) {
-            return true; // Duplicate found
-        }
-        
-        return false; // No duplicates
-    } catch (error) {
-        console.error('Error checking duplicates:', error);
-        return false; // In case of error, assume no duplicates
-    }
-};
-
-
 // -------------------- EXPORTS --------------------
+
 export {
     db,
     auth,
+    // user
     signup,
+    checkDuplicate,
     fetchUsers,
     deleteUserFromFirestore,
     deleteAllUsersFromFirestore,
+    // events
     storeEventData,
-    checkDuplicate,
     fetchEvents,
-
+    // join us
+    signupForJoinUs,
+    checkDuplicateJoinUs,
+    fetchJoinUsData,
+    deleteJoinUsMember // added delete function for joinUs
 };
+
+
+

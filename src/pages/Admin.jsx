@@ -4,6 +4,7 @@ import AdminSidebar from '../components/Admin/AdminSidebar';
 import AdminDashboard from '../components/Admin/AdminDashboard';
 import AdminEvents from '../components/Admin/AdminEvents';
 import AdminRegistration from '../components/Admin/AdminRegistration';
+import AdminMembers from '../components/Admin/AdminMembers';
 
 const Admin = () => {
     const [isOpen, setIsOpen] = useState(true);
@@ -27,6 +28,7 @@ const Admin = () => {
             <AdminDashboard padd={padd} />
             <AdminEvents padd={padd} />
             <AdminRegistration padd={padd} />
+            <AdminMembers padd={padd} />
         </>
     );
 };
