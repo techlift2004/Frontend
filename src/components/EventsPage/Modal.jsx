@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import logo from '../../assets/tech lift copy 4 1.svg';
-import  {signup} from '../../Firebase';
+import { signup, checkDuplicate } from '../../Firebase'; // Assuming you have a function to check duplicates
 
 const Modal = ({ modall, setModall }) => {
   const [formData, setFormData] = useState({
@@ -25,6 +25,15 @@ const Modal = ({ modall, setModall }) => {
     }
 
     try {
+      // Check for duplicate email or phone before signup
+      const isDuplicate = await checkDuplicate(formData.email, formData.phone);
+      
+      if (isDuplicate) {
+        toast.error("Email or phone number already exists!");
+        return;
+      }
+
+      // Proceed with signup if no duplicates
       await signup(formData.name, formData.email, formData.phone); // Save to Firebase
       toast.success("Details added successfully!");
 
