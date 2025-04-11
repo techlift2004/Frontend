@@ -76,12 +76,38 @@ button:focus-visible {
   --font-montserrat: 'Montserrat', sans-serif;
 }
 
-/* *{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-} */
+@layer utilities {
+  /* Define keyframes for slide and rotate animation from the right */
+  @keyframes slideRotateIn {
+    0% {
+      transform: translateX(100%) rotate(90deg); /* Start from right, rotated 90 degrees */
+      opacity: 0; /* Start invisible */
+    }
+    100% {
+      transform: translateX(0) rotate(0deg); /* End in normal position, no rotation */
+      opacity: 1; /* Fully visible */
+    }
+  }
 
-@layer base {
-  .transformation{
-    transition: all 0.3s ease-in-out;
+  /* Define keyframes for slide and rotate animation from the left */
+  @keyframes slideRotateLeftIn {
+    0% {
+      transform: translateX(-100%) rotate(-90deg); /* Start from left, rotated -90 degrees */
+      opacity: 0; /* Start invisible */
+    }
+    100% {
+      transform: translateX(0) rotate(0deg); /* End in normal position, no rotation */
+      opacity: 1; /* Fully visible */
+    }
+  }
+
+  /* Apply the animation for images sliding in from the right */
+  .slide-rotate-in {
+    animation: slideRotateIn 1s ease-out forwards;
+  }
+
+  /* Apply the animation for images sliding in from the left */
+  .slide-rotate-left-in {
+    animation: slideRotateLeftIn 1s ease-out forwards;
   }
 }
