@@ -11,12 +11,12 @@ export default function About() {
     const isInView = useInView(ref, { triggerOnce: true, threshold: 0.2 });
     return (
         <>
-            <div className="bg-[#4B0082] pt-36 overflow-hidden">
+            <div className="bg-[#4B0082] pt-36 ">
                 <h1 className="text-center font-extrabold text-white text-5xl font-poppins">About Us</h1>
                 <p className="text-center text-[1.3rem] text-white px-20 mt-8 font-poppins">
                     We are a team of techies ensuring that the next generation of techies have access to the right resources and community.  we share knowledge, and empower growth through discussions resources and networking
                 </p>
-                <div className="flex justify-center items-center p-5 relative top-28 m-auto max-w-[70rem] mt-[-3rem]">
+                <div className="flex justify-center items-center p-5 relative top-28 m-auto max-w-[70rem] mt-[-3rem] overflow-x-hidden">
                     <img src={aboutimg1} alt="About Us" className="md:w-lg h-60 w-2"/>
                     <img src={aboutimg1} alt="About Us" className="md:w-lg h-40"/>
                     <img src={aboutimg1} alt="About Us" className="md:w-lg h-60"/>
