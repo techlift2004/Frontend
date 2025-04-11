@@ -60,7 +60,7 @@ const Team = () => {
                                     <div className='p-7'>
                                         <img src={item.teamImg} alt="team-member" className='mx-auto'/>
                                         <h1 className='mt-5 font-bold text-[24px] text-center font-poppins'>{item.teamTitle}</h1>
-                                        <h2 className='mt-5 font-bold text-[24px] text-center font-poppins'>{item.teamRole}</h2>
+                                        <h2 className='mt-5 text-[15px] font-medium text-center font-poppins'>{item.teamRole}</h2>
                                         <p className='max-w-[40rem] font-montserrat text-center mt-5'>
                                             {item.teamBio}
                                         </p>
