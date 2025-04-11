@@ -11,7 +11,7 @@ export default function About() {
     const isInView = useInView(ref, { triggerOnce: true, threshold: 0.2 });
     return (
         <>
-            <div className="bg-[#4B0082] pt-36">
+            <div className="bg-[#4B0082] pt-36 overflow-hidden">
                 <h1 className="text-center font-extrabold text-white text-5xl font-poppins">About Us</h1>
                 <p className="text-center text-[1.3rem] text-white px-20 mt-8 font-poppins">
                     We are a team of techies ensuring that the next generation of techies have access to the right resources and community.  we share knowledge, and empower growth through discussions resources and networking

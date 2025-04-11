@@ -95,7 +95,7 @@ export default function Nav({setOpenAccess}) {
           <NavLink to='' className="cursor-pointer md:hidden">Sponsor Us</NavLink>
         </ul>
       </div>
-      <div className="flex justify-between items-center gap-x-4 hidden md:block">
+      <div className="flex flex-col justify-between items-center gap-x-4 hidden md:block">
         <button className="bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer hidden font-poppins md:block">
           Sponsor Us
         </button>
