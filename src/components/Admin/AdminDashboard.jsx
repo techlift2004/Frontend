@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { MdGroups, MdEvent } from 'react-icons/md';
+import { MdGroups, MdEvent, MdPersonOutline } from 'react-icons/md';
 import { useGlobalContext } from './AdminController'
-import { fetchUsers, fetchEvents, deleteUserFromFirestore, deleteAllUsersFromFirestore } from '../../Firebase';
+import { fetchUsers, fetchEvents, deleteUserFromFirestore, deleteAllUsersFromFirestore, fetchJoinUsData } from '../../Firebase';
 
 const AdminDashboard = ({ padd }) => {
     const { openDashboard } = useGlobalContext();
     const [users, setUsers] = useState([]);
+    const [joinUsData, setJoinUsData] = useState([]);
     const [events, setEvents] = useState([]); // State for events
     const [showModal, setShowModal] = useState(false);
     const [userToDelete, setUserToDelete] = useState(null);
@@ -22,7 +23,13 @@ const AdminDashboard = ({ padd }) => {
             setEvents(eventsData); // Set events in state
         };
 
+        const getJoinUsData = async () => {
+            const data = await fetchJoinUsData(); // Assuming this function fetches joinUs data
+            setJoinUsData(data);
+        }
+
         getUsers();
+        getJoinUsData(); // Fetch joinUs data as well
         getEvents(); // Fetch events as well
     }, [events, users]);
 
@@ -56,7 +63,7 @@ const AdminDashboard = ({ padd }) => {
         openDashboard && <div className={`pt-[6rem] pr-[1rem] ${padd ? 'pl-[17rem]' : 'pl-[5rem]'}`}>
             <h1 className='text-[36px] font-bold mb-4'>Dashboard Overview</h1>
             <div className='flex flex-wrap gap-4'>
-                <div className='shadow-lg rounded-[8px] p-4 bg-white w-full sm:w-[48%]'>
+                <div className='shadow-lg rounded-[8px] p-4 bg-white w-full sm:w-[30%]'>
                     <div className='flex justify-between items-center mb-4'>
                         <div className='bg-[rgba(75,0,130,0.15)] rounded p-2'>
                             <MdGroups size={24} className='text-[#4B0082]' />
@@ -65,7 +72,16 @@ const AdminDashboard = ({ padd }) => {
                     </div>
                     <p className='text-gray-700 font-medium'>Total Registrations</p>
                 </div>
-                <div className='shadow-lg rounded-[8px] p-4 bg-white w-full sm:w-[48%]'>
+                <div className='shadow-lg rounded-[8px] p-4 bg-white w-full sm:w-[30%]'>
+                    <div className='flex justify-between items-center mb-4'>
+                        <div className='bg-[rgba(75,0,130,0.15)] rounded p-2'>
+                            <MdPersonOutline size={24} className='text-[#4B0082]' />
+                        </div>
+                        <p className='text-3xl font-bold text-right'>{joinUsData.length}</p>
+                    </div>
+                    <p className='text-gray-700 font-medium'>Total Members</p>
+                </div>
+                <div className='shadow-lg rounded-[8px] p-4 bg-white w-full sm:w-[30%]'>
                     <div className='flex justify-between items-center mb-4'>
                         <div className='bg-[rgba(75,0,130,0.15)] rounded p-2'>
                             <MdEvent size={24} className='text-[#4B0082]' />

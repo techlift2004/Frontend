@@ -1,18 +1,22 @@
-import { useState } from "react";
-import { signup } from "../firebase"; // adjust the path based on your file structure
+import { useState } from 'react';
+import { signupForJoinUs, checkDuplicateJoinUs } from '../Firebase';
 import img7 from '../assets/Gemini_Generated_Image_ikv7c3ikv7c3ikv7-removebg-preview.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Joinus = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    number: "",
-    stack: "",
-    gender: ""
+    name: '',
+    email: '',
+    number: '',
+    stack: '',
+    gender: ''
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
@@ -20,88 +24,121 @@ const Joinus = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const { name, email, number, stack, gender } = formData;
 
     if (!name || !email || !number || !stack || !gender) {
-      alert("Please fill in all fields.");
+      toast.error("Please fill in all fields.");
       return;
     }
 
+    setLoading(true);
+
     try {
-      await signup(name, email, number); // Send data to Firestore
-      window.location.href = "https://chat.whatsapp.com/Lr5HyhTJi60EeqMgw5S2Mu"; // Redirect to WhatsApp group
+      const isDuplicate = await checkDuplicateJoinUs(email, number);
+      if (isDuplicate) {
+        toast.error("You've already joined. Please don't submit again.");
+        setLoading(false);
+        return;
+      }
+
+      await signupForJoinUs(name, email, number, stack, gender);
+      toast.success("Welcome to the community! Redirecting...");
+      window.location.href = "https://chat.whatsapp.com/Lr5HyhTJi60EeqMgw5S2Mu";
     } catch (err) {
-      alert("An error occurred while submitting. Please try again.");
       console.error(err);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className='h-[100vh] grid grid-cols-2 place-items-center px-[10px] md:px-20 bg-[#ffffff] gap-20'>
-      <div className='w-full xl:w-[422px] h-[535px] px-5 md:px-20 rounded-[20px] place-items-center'>
-        <img src={img7} alt="" className="max-w-fit h-[100%]" />
+    <div className="h-[100vh] grid grid-cols-1 md:grid-cols-2 place-items-center px-5 md:px-20 bg-[#ffffff] gap-10">
+      <div className="w-full max-w-[400px]">
+        <img src={img7} alt="Join Community" className="w-full h-auto" />
       </div>
 
-      <form onSubmit={handleSubmit} className='flex flex-col gap-3 xl:gap-4 pb-[10px] xl:px-0'>
-        <h2 className='font-bold text-[24px] font-poppins'>Join Our Community</h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-[500px]">
+        <h2 className="font-bold text-2xl">Join Our Community</h2>
 
-        <label className='flex flex-col gap-4 items-start'>
-          <p className='font-normal text-[16px] font-montserrat'>Full name</p>
-          <input type='text' name="name" value={formData.name} onChange={handleChange}
-            placeholder='Akinrinde Joel' required
-            className='w-full xl:w-[546px] h-[62px] bg-[#D9D9D9] rounded-[10px] px-4 outline-none' />
-        </label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Full Name"
+          required
+          className="h-[50px] px-4 rounded bg-gray-200 outline-none"
+        />
 
-        <label className='flex flex-col gap-4 items-start'>
-          <p className='font-normal text-[16px] font-montserrat'>Email address</p>
-          <input type='email' name="email" value={formData.email} onChange={handleChange}
-            placeholder='example123@gmail.com' required
-            className='w-full xl:w-[546px] h-[62px] bg-[#D9D9D9] rounded-[10px] px-4 outline-none' />
-        </label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Email Address"
+          required
+          className="h-[50px] px-4 rounded bg-gray-200 outline-none"
+        />
 
-        <label className='flex flex-col gap-4 items-start'>
-          <p className='font-normal text-[16px] font-montserrat'>Phone Number</p>
-          <input type='tel' name="number" value={formData.number} onChange={handleChange}
-            placeholder='0806093452' required
-            className='w-full xl:w-[546px] h-[62px] bg-[#D9D9D9] rounded-[10px] px-4 outline-none' />
-        </label>
+        <input
+          type="tel"
+          name="number"
+          value={formData.number}
+          onChange={handleChange}
+          placeholder="Phone Number"
+          required
+          className="h-[50px] px-4 rounded bg-gray-200 outline-none"
+        />
 
-        <div className='flex flex-row gap-5'>
-          <label className='flex flex-col gap-4 items-start'>
-            <p className='font-normal text-[16px] font-montserrat'>Select Stack</p>
-            <select name="stack" value={formData.stack} onChange={handleChange} required
-              className='w-full xl:w-[266px] h-[62px] font-montserrat bg-[#D9D9D9] rounded-[10px] px-4 outline-none'>
-              <option hidden>your stack</option>
-              <option>Frontend</option>
-              <option>Backend</option>
-              <option>Product Designer</option>
-              <option>Project Manager</option>
-              <option>FullStack</option>
-              <option>Social Media Manager</option>
-              <option>Web3</option>
-              <option>Cyber Security</option>
-              <option>Crypto / Forex</option>
-              <option>QA Tester</option>
-              <option>Content Creation</option>
-            </select>
-          </label>
+        <select
+          name="stack"
+          value={formData.stack}
+          onChange={handleChange}
+          required
+          className="h-[50px] px-4 rounded bg-gray-200 outline-none"
+        >
+          <option value="">Select Stack</option>
+          <option value="Frontend">Frontend</option>
+          <option value="Backend">Backend</option>
+          <option value="Product Designer">Product Designer</option>
+          <option value="Project Manager">Project Manager</option>
+          <option value="FullStack">FullStack</option>
+          <option value="Social Media Manager">Social Media Manager</option>
+          <option value="Web3">Web3</option>
+          <option value="Cyber Security">Cyber Security</option>
+          <option value="Crypto / Forex">Crypto / Forex</option>
+          <option value="QA Tester">QA Tester</option>
+          <option value="Content Creation">Content Creation</option>
+        </select>
 
-          <label className='flex flex-col gap-4 items-start'>
-            <p className='font-normal text-[16px] font-montserrat'>Gender</p>
-            <select name="gender" value={formData.gender} onChange={handleChange} required
-              className='w-full xl:w-[266px] h-[62px] bg-[#D9D9D9] font-montserrat rounded-[10px] px-4 outline-none'>
-              <option hidden>Select Gender</option>
-              <option>Male</option>
-              <option>Female</option>
-            </select>
-          </label>
-        </div>
+        <select
+          name="gender"
+          value={formData.gender}
+          onChange={handleChange}
+          required
+          className="h-[50px] px-4 rounded bg-gray-200 outline-none"
+        >
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
 
-        <button type="submit" className='w-full font-montserrat xl:w-[546px] h-[62px] bg-[#4B0082] text-white rounded-[10px] px-4'>
-          Submit
+        <button
+          type="submit"
+          className={`h-[50px] rounded border-2 border-[rgb(75,0,130)] font-semibold px-4 transition-all duration-200 ${
+            loading
+              ? 'bg-white text-[rgb(75,0,130)] cursor-not-allowed'
+              : 'bg-white text-[rgb(75,0,130)] hover:bg-[rgb(75,0,130)] hover:text-white'
+          }`}
+          disabled={loading}
+        >
+          {loading ? 'Submitting...' : 'Join Us'}
         </button>
       </form>
+
+      <ToastContainer />
     </div>
   );
 };

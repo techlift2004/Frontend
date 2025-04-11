@@ -1,16 +1,18 @@
 import React, { useState, useMemo } from 'react';
-import { MdHome, MdGroups, MdEvent, MdLogout } from 'react-icons/md';
+import { MdHome, MdGroups, MdEvent, MdLogout, MdPersonOutline} from 'react-icons/md';
 import { useGlobalContext } from './AdminController';
 import { useNavigate } from 'react-router-dom';
 
 const AdminSidebar = ({ isOpen }) => {
     const [active, setActive] = useState('Dashboard');
-    const { openDashboardSection, openRegistrationSection, openEventsSection } = useGlobalContext();
+    const { openDashboardSection, openRegistrationSection, openEventsSection, openMembersSection } = useGlobalContext();
 
     const navItems = useMemo(() => [
         { id: 'Dashboard', icon: <MdHome size={20} />, label: 'Dashboard' },
         { id: 'Registration', icon: <MdGroups size={20} />, label: 'Registration' },
+        { id: 'Members', icon: <MdPersonOutline size={20} />, label: 'Members' },
         { id: 'Events', icon: <MdEvent size={20} />, label: 'Events' }
+        
     ], []);
 
     const handleClick = (itemId) => {
@@ -18,6 +20,7 @@ const AdminSidebar = ({ isOpen }) => {
         if (itemId === 'Dashboard') openDashboardSection();
         else if (itemId === 'Registration') openRegistrationSection();
         else if (itemId === 'Events') openEventsSection();
+        else if (itemId === 'Members') openMembersSection();
     };
 
     const navigate = useNavigate();
