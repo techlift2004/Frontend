@@ -1,5 +1,6 @@
-import React from 'react'
-import teamImg from '../../assets/Ellipse 27.svg'
+import React from 'react';
+import { useInView } from 'react-intersection-observer'; // Import Intersection Observer
+import teamImg from '../../assets/Ellipse 27.svg';
 
 const Team = () => {
     const teamData = [
@@ -40,19 +41,24 @@ const Team = () => {
             teamBio: 'A strategic thinker who bridges the gap between business needs and technical implementation. She works closely with engineers and designers to build products that solve real-world problems.'
         }
     ];
-    
+
     return (
         <div>
             <h1 className="text-center font-extrabold text-4xl my-10 mb-20">Meet The Team</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 gap-y-28 items-start justify-between p-10'>
                 {
-                    teamData.map((item, index)=>{
-                        return(
-                            <div key={index}>
+                    teamData.map((item, index) => {
+                        const { ref, inView } = useInView({
+                            triggerOnce: true,
+                            threshold: 0.5,
+                        });
+
+                        return (
+                            <div key={index} ref={ref} className={`transform ${inView ? 'backInLeft' : ''}`}>
                                 <div>
                                     <div className='bg-[#4B0082] w-full h-8'></div>
                                     <div className='p-7'>
-                                        <img src={item.teamImg} alt="techlift-agent" className='mx-auto'/>
+                                        <img src={item.teamImg} alt="team-member" className='mx-auto'/>
                                         <h1 className='mt-5 font-bold text-[24px] text-center font-poppins'>{item.teamTitle}</h1>
                                         <h2 className='mt-5 font-bold text-[24px] text-center font-poppins'>{item.teamRole}</h2>
                                         <p className='max-w-[40rem] font-montserrat text-center mt-5'>
@@ -61,12 +67,12 @@ const Team = () => {
                                     </div>
                                 </div>
                             </div>
-                        )
+                        );
                     })
                 }
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Team
+export default Team;

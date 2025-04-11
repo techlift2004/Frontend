@@ -111,3 +111,27 @@ button:focus-visible {
     animation: slideRotateLeftIn 1s ease-out forwards;
   }
 }
+
+@layer utilities {
+  /* Define keyframes for backInLeft effect */
+  @keyframes backInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%) rotateY(-45deg);
+    }
+    60% {
+      opacity: 1;
+      transform: translateX(30px) rotateY(15deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) rotateY(0);
+    }
+  }
+
+  /* Apply the backInLeft animation to the team cards when they enter the viewport */
+  .backInLeft {
+    animation: backInLeft 1s ease-out forwards;
+  }
+}
+
