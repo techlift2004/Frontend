@@ -61,42 +61,60 @@ const Joinus = () => {
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-[500px]">
         <h2 className="font-bold text-2xl">Join Our Community</h2>
 
+
+        <label>
+        <p className="font-semi-bold font-montserrat text-lg">Full Name</p>
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Full Name"
+          placeholder="Adebayo Akande"
           required
-          className="h-[50px] px-4 rounded bg-gray-200 outline-none"
+          className="h-[72px] w-full px-4 rounded bg-gray-200 outline-none"
         />
+        </label>
 
+
+
+        <label>
+        <p className="font-semi-bold font-montserrat text-lg">Email Address</p>
         <input
           type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="Email Address"
+          placeholder="example@gmail.com"
           required
-          className="h-[50px] px-4 rounded bg-gray-200 outline-none"
+          className="h-[72px] w-full px-4 rounded bg-gray-200 outline-none"
         />
+        </label>
 
+
+
+        <label>
+        <p className="font-semi-bold font-montserrat text-lg">Phone Number</p>
         <input
           type="tel"
           name="number"
           value={formData.number}
           onChange={handleChange}
-          placeholder="Phone Number"
+          placeholder="08036547465"
           required
-          className="h-[50px] px-4 rounded bg-gray-200 outline-none"
+          className="h-[72px] w-full px-4 rounded bg-gray-200 outline-none"
         />
+        </label>
 
+        <div className='flex flex-col w-full md:flex-row gap-4'>
+
+        <label>
+        <p className="font-semi-bold font-montserrat text-lg">Stack</p>
         <select
           name="stack"
           value={formData.stack}
           onChange={handleChange}
           required
-          className="h-[50px] px-4 rounded bg-gray-200 outline-none"
+          className="h-[72px] w-full px-4 rounded bg-gray-200 outline-none"
         >
           <option value="">Select Stack</option>
           <option value="Frontend">Frontend</option>
@@ -112,22 +130,27 @@ const Joinus = () => {
           <option value="Content Creation">Content Creation</option>
         </select>
 
+        </label>
+        <label>
+        <p className="font-semi-bold font-montserrat text-lg">Gender</p>
         <select
           name="gender"
           value={formData.gender}
           onChange={handleChange}
           required
-          className="h-[50px] px-4 rounded bg-gray-200 outline-none"
+          className="h-[72px] w-full px-4 rounded bg-gray-200 outline-none"
         >
           <option value="">Select Gender</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
           <option value="Other">Other</option>
         </select>
+        </label>
+        </div>
 
         <button
           type="submit"
-          className={`h-[50px] rounded border-2 border-[rgb(75,0,130)] font-semibold px-4 transition-all duration-200 ${
+          className={`h-[72px] rounded border-2 border-[rgb(75,0,130)] font-semibold px-4 transition-all duration-200 ${
             loading
               ? 'bg-white text-[rgb(75,0,130)] cursor-not-allowed'
               : 'bg-white text-[rgb(75,0,130)] hover:bg-[rgb(75,0,130)] hover:text-white'

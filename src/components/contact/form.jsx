@@ -46,7 +46,7 @@ const Form = () => {
 
 
     <div className='pt-[40px] flex flex-col xl:flex-row justify-center items-center px-[10px] md:px-20 bg-[#ffffff] gap-10 xl:gap-[180px] md:pb-[40px]  '>
-        <div className='bg-[#4B0082] flex flex-col justify-center items-center  xl:items-start w-full xl:w-[422px] h-[635px] space-y-[40px] md:gap-0 px-5 md:px-20 xl:pt-20  rounded-[20px]'>
+        <div className='bg-[#4B0082] flex flex-col justify-center items-center  xl:items-start w-full xl:w-[422px] md:h-[635px] space-y-[40px] md:gap-0  px-[10px] md:px-20 xl:pt-20  rounded-[20px]'>
            {/* <div className='flex flex-col justify-center gap-4 items-center xl:items-start'>
            <h2 className='font-bold text-[24px] '>Contact Information</h2>
            <p className='font-normal text-[16px]'>Reach out to us via the following means</p>
@@ -63,7 +63,7 @@ const Form = () => {
        
         </div>
 
-        <form className='flex flex-col gap-3 xl:gap-7 pb-[10px] xl:px-0'>
+        <form className='flex flex-col gap-3 xl:gap-7 w-full pb-[10px] px-[10px] xl:px-0'>
             <h2 className='font-bold text-[24px] font-poppins'>Send us a message</h2>
             <label className='flex flex-col gap-4 justify-center items-start '>
                 <p className='font-normal text-[16px] font-montserrat'>Full name</p>

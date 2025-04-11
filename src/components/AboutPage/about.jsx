@@ -17,10 +17,10 @@ export default function About() {
                     We are a team of techies ensuring that the next generation of techies have access to the right resources and community.  we share knowledge, and empower growth through discussions resources and networking
                 </p>
                 <div className="flex justify-center items-center p-5 relative top-28 m-auto max-w-[70rem] mt-[-3rem]">
-                    <img src={aboutimg1} alt="About Us" className="w-lg h-60"/>
-                    <img src={aboutimg1} alt="About Us" className="w-lg h-40"/>
-                    <img src={aboutimg1} alt="About Us" className="w-lg h-60"/>
-                    <img src={aboutimg1} alt="About Us" className="w-lg h-40"/>
+                    <img src={aboutimg1} alt="About Us" className="md:w-lg h-60 w-2"/>
+                    <img src={aboutimg1} alt="About Us" className="md:w-lg h-40"/>
+                    <img src={aboutimg1} alt="About Us" className="md:w-lg h-60"/>
+                    <img src={aboutimg1} alt="About Us" className="md:w-lg h-40"/>
                 </div>
             </div>
             <motion.div

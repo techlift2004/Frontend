@@ -8,7 +8,7 @@ const ThoughtProcess = () => {
         <div>
             <h1 className="text-center font-extrabold text-4xl my-10 mb-28">Our Thought Process</h1>
             <div>
-                <div className='flex gap-16 items-center justify-between mb-[7rem]'>
+                <div className='flex flex-col md:flex-row gap-16 items-center justify-between mb-[7rem]'>
                     <div>
                         <h1 className='mb-10 font-bold text-[24px] font-poppins'>Life is hard already, getting into tech shouldn't</h1>
                         <p className='max-w-[40rem] font-poppins'>
@@ -18,7 +18,7 @@ const ThoughtProcess = () => {
                     <img src={thoughtImg1} alt="techlift-thoughts"  className='transform rotate-345'/>
                 </div>
                 <div>
-                    <div className='flex gap-16 items-center justify-between mb-[7rem]'>
+                    <div className='flex flex-col-reverse md:flex-row gap-16 items-center justify-between mb-[7rem]'>
                         <img src={thoughtImg2} alt="techlift-thoughts"  className='transform rotate-345'/>
                         <div>
                             <h1 className='mb-10 font-bold text-[24px] font-poppins'>Networking is the new goldmine in tech, tap it</h1>
@@ -29,7 +29,7 @@ const ThoughtProcess = () => {
                     </div>
                 </div>
                 <div>
-                    <div className='flex gap-16 items-center justify-between mb-[7rem]'>
+                    <div className='flex flex-col md:flex-row gap-16 items-center justify-between mb-[7rem]'>
                         <div>
                             <h1 className='mb-10 font-bold text-[24px] font-poppins'>Learn, Connect And Grow</h1>
                             <p className='max-w-[40rem] font-poppins'>

@@ -99,7 +99,7 @@ const imageUrl = post.mainImage?.asset?._id
       initial={{ y: 50, opacity: 0 }}
       animate={{ y: inView ? 0 : 50, opacity: inView ? 1 : 0 }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
-      className="bg-gray-200 h-[500px] rounded-xl shadow-md overflow-hidden p-5"
+      className="bg-gray-200 md:h-[500px] rounded-xl shadow-md overflow-hidden p-5"
     >
       <div className="relative h-[250px]">
       

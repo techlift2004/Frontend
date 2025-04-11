@@ -71,12 +71,12 @@ const PostPage = () => {
         {Array.isArray(post.body) && <PortableText value={post.body} />}
       </div>
 
-      <form className="mt-8 px-20 py-10 bg-gray-100 rounded-lg shadow-md w-[100%] h-[100%]">
+      <form className="mt-8 px-[10px] md:px-20 py-10 bg-gray-100 rounded-lg shadow-md w-[100%] h-[100%]">
         <h2 className="text-[23px] font-poppins font-bold ">Leave a Comment</h2>
         <p className="text-[20px] font-montserrat pb-[30px] font-normal">Your email address won’t be published</p>
 
         <textarea type="text" placeholder="Write your comment here..." className="w-full h-[314px] font-montserrat p-2 border shadow-2xl border-white  bg-white rounded-md mb-4 **:"></textarea>
-        <div className="flex justify-between gap-10 items-center">
+        <div className="flex flex-col md:flex-row justify-between md:gap-10 items-center">
           <input type="text" placeholder="Full Name" className="w-full h-[80px] font-montserrat p-2 border shadow-2xl border-white bg-white rounded-md mb-4" />
           <input type="email" placeholder="Email Address" className="w-full h-[80px] p-2 border shadow-2xl font-montserrat  border-white bg-white rounded-md mb-4" />
           <button className="w-full h-[80px] text-white font-montserrat p-2 border shadow-2xl border-[#4B0082] bg-[#4B0082] rounded-md mb-4">Submit</button>
