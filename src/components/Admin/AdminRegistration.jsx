@@ -75,7 +75,7 @@ const AdminRegistration = ({ padd }) => {
                             placeholder="Search by name, email, or number"
                             className="p-2 border rounded"
                         />
-                </div>
+                    </div>
                 </div>
                 <div className='py-10'>
                     <div className='grid grid-cols-4 place-items-center w-full gap-4 p-4 bg-white rounded-b-[8px]'>
