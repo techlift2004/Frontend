@@ -13,14 +13,14 @@ export default function About() {
         <>
             <div className="bg-[#4B0082] pt-36 ">
                 <h1 className="text-center font-extrabold text-white text-5xl font-poppins">About Us</h1>
-                <p className="text-center text-[1.3rem] text-white px-20 mt-8 font-poppins">
+                <p className="text-center text-[1.3rem] text-white px-20 mt-8 pb-5 font-poppins">
                     We are a team of techies ensuring that the next generation of techies have access to the right resources and community.  we share knowledge, and empower growth through discussions resources and networking
                 </p>
-                <div className="flex justify-center items-center p-5 relative top-28 m-auto max-w-[70rem] mt-[-3rem] overflow-x-hidden">
-                    <img src={aboutimg1} alt="About Us" className="md:w-lg h-60 w-2"/>
-                    <img src={aboutimg1} alt="About Us" className="md:w-lg h-40"/>
-                    <img src={aboutimg1} alt="About Us" className="md:w-lg h-60"/>
-                    <img src={aboutimg1} alt="About Us" className="md:w-lg h-40"/>
+                <div className="hidden md:flex justify-center items-center p-5 relative top-28 m-auto max-w-[70rem] mt-[-3rem] overflow-x-hidden">
+                    <img src={aboutimg1} alt="About Us" className="md:w-lg md:h-40  lg:h-60 w-2"/>
+                    <img src={aboutimg1} alt="About Us" className="md:w-lg md:h-20 lg:h-40" />
+                    <img src={aboutimg1} alt="About Us" className="md:w-lg md:h-40 lg:h-60" />
+                    <img src={aboutimg1} alt="About Us" className="md:w-lg md:h-20 lg:h-40" />
                 </div>
             </div>
             <motion.div
@@ -28,17 +28,17 @@ export default function About() {
                 initial={{ y: 60, opacity: 0 }}
                 animate={isInView ? { y: 0, opacity: 1 } : {}}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="flex flex-col justify-center items-center py-10 pt-36 gap-5 px-8 md:px-20"
+                className="flex flex-col justify-center items-center py-10 md:pt-36 gap-5 px-8 md:px-20"
             >
-                <p className="text-center md:w-[765px] font-montserrat font-bold">
+                <p className="text-center md:w-[765px] font-montserrat font-bold mt-0">
                     We ensure that as someone starting out in tech, you have  access to the right resources, seminars, work shops and tech events where you can network with professionals in tech and gain exposure that will help you grow
                 </p>
             
-                <div className="flex flex-col md:flex-row xl:gap-10 items-center justify-center">
+                <div className="flex flex-col md:flex-row xl:gap-10 items-center justify-center md:my-[3rem]">
                     <motion.img
                         src={aboutimg}
                         alt="About Us"
-                        className="w-full max-w-[400px] xl:max-w-[600px] h-auto md:h-[400px] xl:h-[500px]"
+                        className="hidden lg:block w-full max-w-[400px] xl:max-w-[600px] h-auto md:h-[400px] xl:h-[500px]"
                         initial={{ y: 100, opacity: 0 }}
                         animate={isInView ? { y: 0, opacity: 1 } : {}}
                         transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}

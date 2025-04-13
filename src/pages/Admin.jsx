@@ -7,8 +7,8 @@ import AdminRegistration from '../components/Admin/AdminRegistration';
 import AdminMembers from '../components/Admin/AdminMembers';
 
 const Admin = () => {
-    const [isOpen, setIsOpen] = useState(true);
-    const [padd, setPadd] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
+    const [padd, setPadd] = useState(false);
     const [activate, setActivate] = useState(true);
 
     useEffect(() => {

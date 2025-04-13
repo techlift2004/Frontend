@@ -60,27 +60,28 @@ const AdminMembers = ({ padd }) => {
 
     const filteredMembers = joinUsData.filter(member =>
         member.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        member.stack.toLowerCase().includes(searchTerm.toLowerCase()) ||
         member.email.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (
         openMembers && (
-            <div className={`pt-[6rem] pr-[1rem] ${padd ? 'pl-[17rem]' : 'pl-[5rem]'}`}>
+            <div className={`pt-[6rem] pr-[1rem] ${padd ? 'md:pl-[17rem]' : 'pl-[2rem]'}`}>
                 <h1 className="text-2xl font-bold mb-6">Members</h1>
 
                 {/* Search input */}
                 <input
                     type="text"
-                    placeholder="Search by name, email, or number"
+                    placeholder="Search by name, stack, or email"
                     className="w-full max-w-md p-2 border border-gray-300 rounded mb-4"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
 
                 {/* Grid Header */}
-                <div className="grid grid-cols-4 font-semibold py-2 px-3 items-center text-center">
+                <div className="grid grid-cols-3 lg:grid-cols-4 font-semibold py-2 px-3 items-center text-center">
                     <div>Name</div>
-                    <div>Email</div>
+                    <div className='hidden lg:block'>Email</div>
                     {/* <div>Number</div> */}
                     <div>Stack</div>
                     <div>Actions</div>
@@ -94,9 +95,9 @@ const AdminMembers = ({ padd }) => {
                     <div className="text-center py-6">Loading...</div>
                 ) : filteredMembers.length > 0 ? (
                     filteredMembers.map((member) => (
-                        <div key={member.id} className="grid grid-cols-4 items-center py-3 px-3 text-center">
+                        <div key={member.id} className="grid grid-cols-3 lg:grid-cols-4 items-center py-3 px-3 text-center">
                             <div>{member.name}</div>
-                            <div>{member.email}</div>
+                            <div className='hidden lg:block'>{member.email}</div>
                             {/* <div>{member.phone}</div> */}
                             <div>{member.stack}</div>
                             <div>
