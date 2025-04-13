@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Logo from "../../assets/tech lift copy 4 1.svg";
+import Logo from "../../assets/tech lift copy 4.png";
 import { NavLink } from "react-router-dom";
 
 export default function Nav({setOpenAccess}) {
@@ -21,7 +21,7 @@ export default function Nav({setOpenAccess}) {
       transition={{ duration: 1.0, ease: "easeOut" }}
       className="flex flex-row justify-between items-center px-8 bg-[#FFFFFF] h-[64px] w-[100%] overflow-hidden fixed z-1000 shadow"
     >
-      <img src={Logo} alt="logo" className="w-[90px] h-[90px]" />
+      <img src={Logo} alt="logo" className="w-[200px] h-[200px]" />
 
       <ul className="hidden md:flex space-x-6 text-black text-[16px] font-montserrat font-normal">
         <NavLink
