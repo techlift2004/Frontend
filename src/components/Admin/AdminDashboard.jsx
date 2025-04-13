@@ -60,10 +60,10 @@ const AdminDashboard = ({ padd }) => {
     };
 
     return (
-        openDashboard && <div className={`pt-[6rem] pr-[1rem] ${padd ? 'pl-[17rem]' : 'pl-[5rem]'}`}>
+        openDashboard && <div className={`pt-[6rem] pr-[1rem] ${padd ? 'md:pl-[17rem]' : 'pl-[2rem]'}`}>
             <h1 className='text-[36px] font-bold mb-4'>Dashboard Overview</h1>
-            <div className='flex flex-wrap gap-4'>
-                <div className='shadow-lg rounded-[8px] p-4 bg-white w-full sm:w-[30%]'>
+            <div className='block w-full mx-auto lg:flex flex-wrap gap-4'>
+                <div className='shadow-lg rounded-[8px] p-4 bg-white w-full lg:w-[30%] mb-5'>
                     <div className='flex justify-between items-center mb-4'>
                         <div className='bg-[rgba(75,0,130,0.15)] rounded p-2'>
                             <MdGroups size={24} className='text-[#4B0082]' />
@@ -72,7 +72,7 @@ const AdminDashboard = ({ padd }) => {
                     </div>
                     <p className='text-gray-700 font-medium'>Total Registrations</p>
                 </div>
-                <div className='shadow-lg rounded-[8px] p-4 bg-white w-full sm:w-[30%]'>
+                <div className='shadow-lg rounded-[8px] p-4 bg-white w-full lg:w-[30%] mb-5'>
                     <div className='flex justify-between items-center mb-4'>
                         <div className='bg-[rgba(75,0,130,0.15)] rounded p-2'>
                             <MdPersonOutline size={24} className='text-[#4B0082]' />
@@ -81,7 +81,7 @@ const AdminDashboard = ({ padd }) => {
                     </div>
                     <p className='text-gray-700 font-medium'>Total Members</p>
                 </div>
-                <div className='shadow-lg rounded-[8px] p-4 bg-white w-full sm:w-[30%]'>
+                <div className='shadow-lg rounded-[8px] p-4 bg-white w-full lg:w-[30%] mb-5'>
                     <div className='flex justify-between items-center mb-4'>
                         <div className='bg-[rgba(75,0,130,0.15)] rounded p-2'>
                             <MdEvent size={24} className='text-[#4B0082]' />
@@ -95,21 +95,21 @@ const AdminDashboard = ({ padd }) => {
             <div className='shadow-lg rounded-[8px] my-10'>
                 <div className='flex justify-between items-center p-4 rounded-t-[8px]'>
                     <h2 className='text-[24px] font-bold mb-4'>Recent Registrations</h2>
-                    {users.length > 0 && (
-                        <div className='flex justify-end p-4'>
+                </div>
+                {users.length > 0 && (
+                        <div className='flex justify-end md:p-4'>
                             <button
                                 onClick={handleDeleteAllUsers}
-                                className="bg-red-500 text-white py-2 px-4 rounded-[8px]"
+                                className="bg-red-500 text-white py-2 px-4 rounded-[8px] mr-5"
                             >
                                 Delete All Users
                             </button>
                         </div>
-                    )}
-                </div>
+                )}
                 <div className='py-10'>
-                    <div className='grid grid-cols-4 place-items-center w-full gap-4 p-4 bg-white rounded-b-[8px]'>
+                    <div className='grid grid-cols-3 lg:grid-cols-4 place-items-center w-full gap-4 p-4 bg-white rounded-b-[8px]'>
                         <p>Name</p>
-                        <p>Email</p>
+                        <p className='hidden lg:block'>Email</p>
                         <p>Number</p>
                         <p>Actions</p>
                     </div>
@@ -121,13 +121,13 @@ const AdminDashboard = ({ padd }) => {
 
                     {users.length > 0 ? (
                         users.slice(0, 3).map((user) => (
-                            <div key={user.id} className='grid grid-cols-4 place-items-center w-full gap-4 mt-4 p-4 bg-white rounded-b-[8px]'>
+                            <div key={user.id} className='grid grid-cols-3 lg:grid-cols-4 place-items-center w-full gap-4 mt-4 p-4 bg-white rounded-b-[8px]'>
                                 <p>{user.name}</p>
-                                <p>{user.email}</p>
+                                <p className='hidden lg:block'>{user.email}</p>
                                 <p>{user.number}</p>
                                 <button
                                     onClick={() => handleDeleteUser(user.id)}
-                                    className="hover:text-[#FFFFFF] border-2 border-[rgb(75,0,130)] text-[rgb(75,0,130)] h-[44px] w-[128px] text-[16px] font-normal hover:bg-[rgb(75,0,130)] rounded-[8px] cursor-pointer"
+                                    className="hover:text-[#FFFFFF] border-2 border-[rgb(75,0,130)] text-[rgb(75,0,130)] h-[44px] w-[95px] md:w-[128px] text-[16px] font-normal hover:bg-[rgb(75,0,130)] rounded-[8px] cursor-pointer"
                                 >
                                     Delete
                                 </button>

@@ -63,24 +63,24 @@ const AdminRegistration = ({ padd }) => {
 
     return (
         openRegistration && (
-        <div className={`pt-[6rem] pr-[1rem] ${padd ? 'pl-[17rem]' : 'pl-[5rem]'}`}>
+        <div className={`pt-[6rem] pr-[1rem] ${padd ? 'md:pl-[17rem]' : 'pl-[2rem]'}`}>
             <div className='shadow-lg rounded-[8px] my-10'>
                 <div className='flex justify-between items-center rounded-t-[8px] p-4'>
                     <h1 className='text-[36px] font-bold mb-4'>Registered Users</h1>
-                    <div className="mb-4">
-                        <input 
-                            type="text" 
-                            value={searchQuery} 
-                            onChange={(e) => setSearchQuery(e.target.value)} 
-                            placeholder="Search by name, email, or number"
-                            className="p-2 border rounded"
-                        />
-                    </div>
+                </div>
+                <div className="mb-4 pl-5">
+                    <input 
+                        type="text" 
+                        value={searchQuery} 
+                        onChange={(e) => setSearchQuery(e.target.value)} 
+                        placeholder="Search by name, email, or number"
+                        className="p-2 border rounded"
+                    />
                 </div>
                 <div className='py-10'>
-                    <div className='grid grid-cols-4 place-items-center w-full gap-4 p-4 bg-white rounded-b-[8px]'>
+                    <div className='grid grid-cols-3 lg:grid-cols-4 place-items-center w-full gap-4 p-4 bg-white rounded-b-[8px]'>
                         <p>Name</p>
-                        <p>Email</p>
+                        <p className='hidden lg:block'>Email</p>
                         <p>Number</p>
                         <p>Actions</p>
                     </div>
@@ -91,15 +91,15 @@ const AdminRegistration = ({ padd }) => {
 
                     {filteredUsers.length > 0 ? (
                         filteredUsers.map((user) => (
-                        <div key={user.id} className='grid grid-cols-4 place-items-center w-full gap-4 mt-4 p-4 bg-white rounded-b-[8px]'>
+                        <div key={user.id} className='grid grid-cols-3 lg:grid-cols-4 place-items-center w-full gap-4 mt-4 p-4 bg-white rounded-b-[8px]'>
                             <p>{user.name}</p>
-                            <p>{user.email}</p>
+                            <p className='hidden lg:block'>{user.email}</p>
                             <p>{user.number}</p>
                             <button
-                            onClick={() => handleDeleteUser(user.id)}
-                            className="hover:bg-[#4B0082] h-[44px] w-[128px] text-[16px] font-normal hover:text-[#FFFFFF] border-2 border-[rgb(75,0,130)] text-[rgb(75,0,130)] rounded-[8px] cursor-pointer"
+                                onClick={() => handleDeleteUser(user.id)}
+                                className="hover:bg-[#4B0082] h-[44px] w-[95px] md:w-[128px] text-[16px] font-normal hover:text-[#FFFFFF] border-2 border-[rgb(75,0,130)] text-[rgb(75,0,130)] rounded-[8px] cursor-pointer"
                             >
-                            Delete
+                                Delete
                             </button>
                         </div>
                         ))
