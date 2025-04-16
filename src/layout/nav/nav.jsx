@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Logo from "../../assets/tech lift copy 4.png";
 import { NavLink } from "react-router-dom";
 
-export default function Nav({setOpenAccess}) {
+export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -95,14 +95,12 @@ export default function Nav({setOpenAccess}) {
           <NavLink to='' className="cursor-pointer md:hidden">Sponsor Us</NavLink>
         </ul>
       </div>
-      <div className="md:flex flex-row justify-between items-center gap-x-4 hidden ">
+      {/* <div className="md:flex flex-row justify-between items-center gap-x-4 hidden "> */}
         <button className="bg-[#4B0082] h-[44px] w-[95px] md:w-[128px] text-[16px] font-normal text-[#FFFFFF] rounded-[8px] cursor-pointer hidden font-poppins md:block">
           Sponsor Us
         </button>
-        <button onClick={()=>setOpenAccess(true)} className="lg:flex justify-center items-center m-auto hover:bg-[rgb(75,0,130)] h-[44px] w-[95px] md:w-[128px] text-[16px] font-normal hover:text-[#FFFFFF] border-2 border-[rgb(75,0,130)] text-[rgb(75,0,130)] rounded-[8px] cursor-pointer hidden md:block">
-          Admin
-        </button>
-      </div>
+       
+      {/* </div> */}
     </motion.div>
   );
 }
