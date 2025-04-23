@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { client } from "../sanityClient";
@@ -11,13 +8,11 @@ import { SlEvent } from "react-icons/sl";
 import { PiClock } from "react-icons/pi";
 import { motion, useInView } from "framer-motion";
 import imageUrlBuilder from "@sanity/image-url";
-const builder = imageUrlBuilder(client);
-import img1 from "../assets/Group 49.svg";
 
-const POSTS_QUERY = `*[ 
-  _type == "post" 
-  && defined(slug.current) 
-]|order(publishedAt desc)[0...12]{
+
+const builder = imageUrlBuilder(client);
+
+const POSTS_QUERY = `*[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0...12]{
   _id, 
   title, 
   slug, 
@@ -25,8 +20,8 @@ const POSTS_QUERY = `*[
   author, 
   category, 
   readTime, 
-  mainImage{
-    asset->{
+  mainImage {
+    asset-> {
       _id,
       url
     }
@@ -54,15 +49,16 @@ export default function Blog() {
   return (
     <div>
       <Nav />
-       <div className="bg-[#4B0082] pt-36 pb-28">
-                      <h1 className="text-center font-extrabold text-white text-5xl font-poppins">Latest Posts</h1>
-                      <p className="text-center text-[1.3rem] text-white px-20 mt-8 font-poppins">
-                      No matter where you are in your tech journey, our informative blogs are here to provide the knowledge and support you need to succeed.
-                      </p>
-                  </div>
+      <div className="bg-[#4B0082] pt-36 pb-28">
+        <h1 className="text-center font-extrabold text-white text-5xl font-poppins">
+          Latest Posts
+        </h1>
+        <p className="text-center text-[1.3rem] text-white px-20 mt-8 font-poppins">
+          No matter where you are in your tech journey, our informative blogs are here to provide the knowledge and support you need to succeed.
+        </p>
+      </div>
+
       <main className="container mx-auto min-h-screen pt-20 max-w-7xl p-8">
-
-
         {error && <p className="text-red-500 text-center">{error}</p>}
 
         {posts === null ? (
@@ -89,10 +85,19 @@ function BlogCard({ post, index }) {
     if (isInView) setInView(true);
   }, [isInView]);
 
-// Get the properly formatted image URL
-const imageUrl = post.mainImage?.asset?._id
-? builder.image(post.mainImage).width(500).height(300).url()
-: null;
+const { projectId, dataset } = client.config();
+const urlFor = (source) =>
+  projectId && dataset
+    ? imageUrlBuilder({ projectId, dataset }).image(source)
+    : null;
+
+
+
+
+    const postImageUrl = post.image
+    ? urlFor(post.image)?.width(550).height(310).url()
+    : null;
+
   return (
     <motion.div
       ref={ref}
@@ -102,14 +107,15 @@ const imageUrl = post.mainImage?.asset?._id
       className="bg-gray-200 md:h-[500px] rounded-xl shadow-md overflow-hidden p-5"
     >
       <div className="relative h-[250px]">
-      
-          <img
-            src={img1}
-            alt={post.title}
-            className="w-full h-full object-cover"
-           
-          />
-       
+        {postImageUrl && (
+        <img
+          src={postImageUrl}
+          alt={post.title}
+          className="aspect-video rounded-xl place-items-center"
+          width="100%"
+          height="100%"
+        />
+      )}
       </div>
 
       <div className="mt-14 flex flex-col gap-6">
@@ -121,7 +127,7 @@ const imageUrl = post.mainImage?.asset?._id
             <SlEvent /> {post.category}
           </span>
           <span className="flex gap-1 font-montserrat items-center">
-            <PiClock />{new Date(post.publishedAt).toLocaleDateString()}
+            <PiClock /> {new Date(post.publishedAt).toLocaleDateString()}
           </span>
         </div>
         <h3 className="text-lg font-bold font-poppins text-[24px]">{post.title}</h3>
@@ -134,7 +140,4 @@ const imageUrl = post.mainImage?.asset?._id
     </motion.div>
   );
 }
-
-
-
-
+``

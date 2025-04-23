@@ -105,7 +105,7 @@ const Joinus = () => {
         />
         </label>
 
-        <div className='flex flex-col w-full md:flex-row gap-4'>
+        <div className='flex flex-col w-full md:flex-row gap-4 '>
 
         <label>
         <p className="font-semi-bold font-montserrat text-lg">Stack</p>

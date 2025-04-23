@@ -42,7 +42,7 @@ const AllEvents = () => {
                 ) : events.length > 0 ? (
                         events.map(item => (
                             <div key={item.id} className='text-center rounded-[15px] bg-[#4B0082]'>
-                                <img src={item.eventImage} alt="event" className='w-full' />
+                                <img src={item.eventImage} alt="event" className='w-full h-[400px]' />
                                 <h1 className='my-5 font-extrabold text-xl text-white font-poppins'>
                                     {item.eventTitle}
                                 </h1>

@@ -35,7 +35,7 @@ export default function Footer({setOpenAccess}) {
           <h1 className='text-[24px] font-bold text-center text-white md:text-start font-poppins'>Connect</h1>
           <ul className='flex flex-col justify-center items-center md:items-start gap-4'>
             <Link to='https://www.tiktok.com/@techliftteam' className='text-[16px] text-white font-montserrat font-normal text-center md:text-start w-[240px] flex flex-row items-center place-content-center md:place-content-start gap-2 '><FaTiktok className='' />TiKTok</Link>
-            <Link to='/join' className='text-[16px] text-white font-montserrat font-normal text-center md:text-start w-[240px] flex flex-row items-center gap-2 place-content-center md:place-content-start '><FaWhatsapp />Whatsapp</Link>
+            <Link to='' className='text-[16px] text-white font-montserrat font-normal text-center md:text-start w-[240px] flex flex-row items-center gap-2 place-content-center md:place-content-start '><FaWhatsapp />Whatsapp</Link>
             <Link to='https://www.instagram.com/techlift_official' className='text-[16px] text-white font-montserrat font-normal text-center md:text-start w-[240px] flex flex-row items-center gap-2 place-content-center md:place-content-start'><FaInstagram />Instagram</Link>
             <Link to='' className='text-[16px] font-normal text-center md:text-start w-[240px] font-montserrat text-white flex flex-row items-center gap-2 place-content-center md:place-content-start '><CiLinkedin />Linkedin</Link>
             <Link to='https://x.com/techliftteam' className='text-[16px] font-normal text-white font-montserrat text-center md:text-start w-[240px] flex flex-row items-center gap-2 place-content-center md:place-content-start '><FaXTwitter />Twitter</Link>
